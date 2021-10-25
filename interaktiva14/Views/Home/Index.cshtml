@@ -1,14 +1,27 @@
-﻿<body>
+﻿@model MovieBySearchDto
+
+<body>
     <div id="page-wrapper">
         <div id="banner">
             <div class="container">
                 <div class="row">
                     <div class="col-6 col-12-medium">
                         <!-- Banner Copy -->
-                            <p>CMDn Community</p>
-                            <input type="text" placeholder="Search..">
-                            <a href="#" class="button-large">Go on, click me!</a>
+                        <p>CMDn Community</p>
+                        <input type="text" placeholder="Search..">
+                        <a href="#" class="button-large">Go on, click me!</a>
+                        <h1>Sökresultat</h1>
 
+                        <div class="flex-container">
+                            @for (var i = 0; i < 5; i++)
+                            {
+                            <div>
+                                <h1>@Html.DisplayFor(model => model.Search[@i].Title)</h1>
+                                <img src=@Model.Search[@i].Poster alt=@Model.Search[@i].Title>
+                                <h1>@Html.DisplayFor(model => model.Search[@i].Year)</h1>
+                            </div>
+                             }
+                        </div>
                     </div>
                     <div class="col-6 col-12-medium imp-medium">
 

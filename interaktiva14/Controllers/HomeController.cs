@@ -1,4 +1,5 @@
 ﻿using interaktiva14.Models;
+using interaktiva14.Models.ViewModels;
 using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,12 @@ namespace interaktiva14.Controllers
         {
             string movieName = "Dune";
             var searchResult = await omdbRepository.GetMovieBySearch(movieName);
+            var model = new HomeViewModel()
+            {
+                Search = searchResult.Search,
+                totalResults = searchResult.totalResults,
+                Response = searchResult.Response
+            };
             return View(searchResult);
         }
     }

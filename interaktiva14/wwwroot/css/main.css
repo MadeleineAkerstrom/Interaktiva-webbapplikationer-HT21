@@ -1578,6 +1578,11 @@ input, select, textarea {
 			margin: 0 0 1em 0;
 		}
 
+#page-wrapper #banner .container .flex-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 /* Features */
 	#features {
 		background: #353D40 url("images/bg02.jpg");
