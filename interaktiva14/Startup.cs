@@ -15,6 +15,8 @@ namespace interaktiva14
 {
     public class Startup
     {
+        private string _moviesApiKey = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,6 +30,7 @@ namespace interaktiva14
             services.AddControllersWithViews();
             services.AddScoped<IOmdbRepository, OmdbRepository>(); // Lägger till OmdbRepository som ett objekt vid startup. Som kan kommas åt i hela programmet.
             services.AddScoped<IApiClient, ApiClient>();
+            _moviesApiKey = Configuration["Movies:ServiceApiKey"];
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

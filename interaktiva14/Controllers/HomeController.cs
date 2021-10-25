@@ -18,9 +18,10 @@ namespace interaktiva14.Controllers
         {
             this.omdbRepository = omdbRepository;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var searchResult = omdbRepository.GetMovieBySearch();
+            string movieName = "Dune";
+            var searchResult = await omdbRepository.GetMovieBySearch(movieName);
             return View(searchResult);
         }
     }

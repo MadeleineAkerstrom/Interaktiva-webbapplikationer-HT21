@@ -12,6 +12,6 @@ namespace interaktiva14.Repositories
         /// Retrieves searchresult of movies
         /// </summary>
         /// <returns>MovieBySearchDto</returns>
-        MovieBySearchDto GetMovieBySearch();
+        Task<MovieBySearchDto> GetMovieBySearch(string movieName);
     }
 }
