@@ -1,4 +1,5 @@
 ﻿using interaktiva14.Models;
+using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,19 +12,16 @@ namespace interaktiva14.Controllers
 {
     public class HomeController : Controller
     {
+        private IOmdbRepository omdbRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IOmdbRepository omdbRepository)
         {
+            this.omdbRepository = omdbRepository;
         }
-
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var searchResult = omdbRepository.GetMovieBySearch();
+            return View(searchResult);
         }
     }
 }

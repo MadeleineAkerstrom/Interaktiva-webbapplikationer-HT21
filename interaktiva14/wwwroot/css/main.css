@@ -1579,7 +1579,6 @@ input, select, textarea {
 		}
 
 /* Features */
-
 	#features {
 		background: #353D40 url("images/bg02.jpg");
 		border-bottom: solid 1px #272e31;
@@ -1587,6 +1586,10 @@ input, select, textarea {
 		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
 		color: #a0a8ab;
 	}
+
+		#features .container h1 {
+			text-align: center;
+		}
 
 		#features h2 {
 			font-size: 1.25em;
