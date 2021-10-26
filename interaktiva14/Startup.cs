@@ -1,3 +1,5 @@
+using interaktiva14.Infrastructure;
+using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +15,8 @@ namespace interaktiva14
 {
     public class Startup
     {
+        private string _moviesApiKey = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +28,9 @@ namespace interaktiva14
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IOmdbRepository, OmdbRepository>(); // Lägger till OmdbRepository som ett objekt vid startup. Som kan kommas åt i hela programmet.
+            services.AddScoped<IApiClient, ApiClient>();
+            _moviesApiKey = Configuration["Movies:ServiceApiKey"];
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

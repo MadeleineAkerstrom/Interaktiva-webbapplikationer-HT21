@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static interaktiva14.Models.MovieBySearchDto;
 
-namespace interaktiva14.Models.ViewModels
+namespace interaktiva14.Models
 {
-    public class HomeViewModel
+    public partial class MovieBySearchDto
     {
         public List<MovieDto> Search { get; set; }
         public string totalResults { get; set; }

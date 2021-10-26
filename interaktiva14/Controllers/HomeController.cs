@@ -1,4 +1,6 @@
 ﻿using interaktiva14.Models;
+using interaktiva14.Models.ViewModels;
+using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,27 +13,23 @@ namespace interaktiva14.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IOmdbRepository omdbRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IOmdbRepository omdbRepository)
         {
-            _logger = logger;
+            this.omdbRepository = omdbRepository;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            string movieName = "Dune";
+            var searchResult = await omdbRepository.GetMovieBySearch(movieName);
+            var model = new HomeViewModel()
+            {
+                Search = searchResult.Search,
+                totalResults = searchResult.totalResults,
+                Response = searchResult.Response
+            };
+            return View(searchResult);
         }
     }
 }
