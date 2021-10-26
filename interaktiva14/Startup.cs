@@ -1,3 +1,4 @@
+using DemoInteraktiva.Repositories;
 using interaktiva14.Infrastructure;
 using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -28,7 +29,7 @@ namespace interaktiva14
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IOmdbRepository, OmdbRepository>(); // Lägger till OmdbRepository som ett objekt vid startup. Som kan kommas åt i hela programmet.
+            services.AddScoped<IOmdbRepository, MockRepository>(); // Lï¿½gger till OmdbRepository som ett objekt vid startup. Som kan kommas ï¿½t i hela programmet.
             services.AddScoped<IApiClient, ApiClient>();
             _moviesApiKey = Configuration["Movies:ServiceApiKey"];
         }
