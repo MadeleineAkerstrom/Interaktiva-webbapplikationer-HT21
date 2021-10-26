@@ -13,5 +13,8 @@ namespace interaktiva14.Models.ViewModels
         [DisplayFormat(DataFormatString ="st")]
         public string totalResults { get; set; }
         public string Response { get; set; }
+         public string imdbID { get; set; }
+        public int numberOfLikes { get; set; }
+        public int numberOfDislikes { get; set; }
     }
 }
