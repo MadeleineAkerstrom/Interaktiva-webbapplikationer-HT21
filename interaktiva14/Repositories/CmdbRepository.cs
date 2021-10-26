@@ -11,18 +11,16 @@ namespace interaktiva14.Repositories
     public class CmdbRepository : ICmdbRepository
     {
         private readonly IApiClient apiClient;
-        private readonly IConfiguration _config;
         private readonly string baseEndpoint = "https://grupp9.dsvkurs.miun.se/api/";
 
-        public CmdbRepository(IApiClient apiClient, IConfiguration config)
+        public CmdbRepository(IApiClient apiClient)
         {
             this.apiClient = apiClient;
-            _config = config;
         }
-        public async Task<MovieBySearchDto> GetMovieBySearch(string movieName)
+        public async Task<MovieBySearchDto> GetMovieToplist()
         {
-            var moviesApiKey = _config["Movies:ServiceApiKey"];
-            var result = await apiClient.GetAsync<MovieBySearchDto>($"{baseEndpoint}?apikey={moviesApiKey}&s={movieName}&plot=full");
+            var toplist = "Toplist?sort=asc&count=4&type=popularity";
+            var result = await apiClient.GetAsync<MovieBySearchDto>($"{baseEndpoint}{toplist}");
             return result;
         }
     }

@@ -8,6 +8,10 @@ namespace interaktiva14.Repositories
 {
     public interface ICmdbRepository
     {
-                
+        /// <summary>
+        /// Retrieves toplist of movies
+        /// </summary>
+        /// <returns>CmdbDto</returns>
+        Task<MovieBySearchDto> GetMovieToplist();    
     }
 }
