@@ -16,5 +16,11 @@ namespace interaktiva14.Models.ViewModels
          public string imdbID { get; set; }
         public int numberOfLikes { get; set; }
         public int numberOfDislikes { get; set; }
+        public HomeViewModel(MovieBySearchDto MovieBySearch)
+        {
+            Search = MovieBySearch.Search;
+            totalResults = MovieBySearch.totalResults;
+            Response = MovieBySearch.Response;
+        }
     }
 }
