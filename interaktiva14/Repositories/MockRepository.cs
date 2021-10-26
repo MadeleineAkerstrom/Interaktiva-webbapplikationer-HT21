@@ -15,10 +15,16 @@ namespace DemoInteraktiva.Repositories
         {
             basePath = $@"{environment.ContentRootPath}\Mock\"; // hämtar den absoluta sökvägen 
         }
-        public async Task<MovieBySearchDto> GetMovieBySearch(string movieName)
+        public async Task<MovieBySearchDto> GetMovieBySearchAsync(string movieName)
         {
             await Task.Delay(0);
             return GetTestData<MovieBySearchDto>("movieSearch.json");
+        }
+
+        public async Task<MovieByTitleIdDto> GetMovieByTitleIdAsync(string movieName)
+        {
+            await Task.Delay(0);
+            return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
         }
 
         private T GetTestData<T>(string testfile)

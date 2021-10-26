@@ -13,16 +13,24 @@ namespace interaktiva14.Repositories
         private readonly IApiClient apiClient;
         private readonly IConfiguration _config;
         private readonly string baseEndpoint = "http://www.omdbapi.com/";
+        private readonly string moviesApiKey;
+        
 
         public OmdbRepository(IApiClient apiClient, IConfiguration config)
         {
             this.apiClient = apiClient;
             _config = config;
+            moviesApiKey = _config["Movies:ServiceApiKey"];
         }
-        public async Task<MovieBySearchDto> GetMovieBySearch(string movieName)
+        public async Task<MovieBySearchDto> GetMovieBySearchAsync(string movieName)
         {
-            var moviesApiKey = _config["Movies:ServiceApiKey"];
             var result = await apiClient.GetAsync<MovieBySearchDto>($"{baseEndpoint}?apikey={moviesApiKey}&s={movieName}&plot=full");
+            return result;
+        }
+
+        public async Task<MovieByTitleIdDto> GetMovieByTitleIdAsync(string movieName)
+        {
+            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
             return result;
         }
     }
