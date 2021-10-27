@@ -1,4 +1,5 @@
-@model dynamic
+@model interaktiva14.Models.ViewModels.HomeViewModel
+
 <body class="subpage">
 		<div id="page-wrapper">
 
@@ -15,13 +16,17 @@
 											<h3>A generic one column layout</h3>
 										</header>
 										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam metus, congue
-											vel suscipit ut, dignissim non risus. Vestibulum ante est, fringilla nec placerat
-											eu, vestibulum vitae diam. Integer eget egestas eros. Duis enim erat, mollis quis
-											lacinia eget, blandit nec ipsum. Donec vitae turpis ipsum. Aliquam mauris libero,
-											sagittis in eleifend at, mattis imperdiet velit. Donec urna risus, rutrum molestie
-											varius ac, lacinia sit amet augue. Nam ultrices elementum eros.
-										</p>
+											<div class="flex-container">
+                            				@for (var i = 0; i < 5; i++)
+                            					{
+                           				 			<div>
+                             			   				<h1>@Html.DisplayFor(model => model.Search[@i].Title)</h1>
+                                						<img src=@Model.Search[@i].Poster alt=@Model.Search[@i].Title>
+                                						<h1>@Html.DisplayFor(model => model.Search[@i].Year)</h1>
+                            						</div>
+                             					}
+                       						</div> 
+										</p> 
 										<p>
 											Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
 											hendrerit congue nec eu risus. Cum sociis natoque penatibus et magnis dis parturient
