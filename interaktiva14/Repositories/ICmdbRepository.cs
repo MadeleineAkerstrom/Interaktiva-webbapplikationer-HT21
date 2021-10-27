@@ -9,9 +9,9 @@ namespace interaktiva14.Repositories
     public interface ICmdbRepository
     {
         /// <summary>
-        /// Retrieves toplist of movies
+        /// Retrieves toplist of movies from Cmdb
         /// </summary>
         /// <returns>CmdbDto</returns>
-        Task<MovieBySearchDto> GetMovieToplist();    
+        Task<CmdbDto> GetMovieToplist();    
     }
 }
