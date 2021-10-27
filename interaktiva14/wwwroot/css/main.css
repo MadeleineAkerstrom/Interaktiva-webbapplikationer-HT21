@@ -70,9 +70,41 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+/* Header */
+.topnav {
+	overflow: hidden;
+	background-color: #474f51 ;
+	
+}
+.topnav a {
+	float: right;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+
+}
+.topnav #logo {
+	font-size: 60px;
+	text-align: center;
+	margin: 10;
+}
+.topnav .search-container  {
+	float: right;
+	cursor: pointer;
+
+}
+
+.topnav h1 {
+	float: left;
+
+}
 
 /* Basic */
 
+	
+	
 	html {
 		box-sizing: border-box;
 	}

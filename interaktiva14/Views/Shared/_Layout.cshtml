@@ -13,26 +13,18 @@
 	</head>
 
     <!-- Header --> 
-        <section id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-
-                        <!-- Logo -->
-                            <h1><a href="index.html" id="logo">CMDn Community</a></h1>
-
-                        <!-- Nav -->
-                            <nav id="nav">
-                                <a href="index.html">Homepage</a>
-                                <a href="threecolumn.html">Three Column</a>
-                                <a href="twocolumn1.html">Two Column #1</a>
-                                <a href="twocolumn2.html">Two Column #2</a>
-                                <a href="onecolumn.html">One Column</a>
-                            </nav>
-                    </div>
-                </div>
+        
+            <div class="topnav">
+               
+                <!-- Logo -->
+                <h1><a href="index.html" id="logo">CMDb Community</a></h1>
+                            
+                    <div class="search-container">
+                        <input type="text" placeholder="Search.." name="MovieName" value="">
+                        <a href="#" class="button-large">Search!</a> 
+                    </div> 
             </div>
-        </section>
+        
 
          <@RenderBody()/>
 

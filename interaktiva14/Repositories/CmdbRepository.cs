@@ -17,11 +17,11 @@ namespace interaktiva14.Repositories
         {
             this.apiClient = apiClient;
         }
-        public async Task<MovieBySearchDto> GetMovieToplist()
+        public async Task<CmdbDto> GetMovieToplist()
         {
-            var toplist = "Toplist?sort=asc&count=4&type=popularity";
-            var result = await apiClient.GetAsync<MovieBySearchDto>($"{baseEndpoint}{toplist}");
-            return result;
+            var top4 = "Toplist?sort=desc&count=4&type=popularity";
+            var result = await apiClient.GetAsync<CmdbDto>($"{baseEndpoint}{top4}");
+            return result; // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
     }
 }
