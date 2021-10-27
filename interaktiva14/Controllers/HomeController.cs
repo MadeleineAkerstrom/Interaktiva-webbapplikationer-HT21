@@ -22,9 +22,14 @@ namespace interaktiva14.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            var searchResult = await omdbRepository.GetSearchResultMovieInfo("Dune");
             try
             {
-                 string movieName = "Dune"; // Behöver koppla denna till html interface
+                
+                
+                /*
+                string movieName = "Dune"; // Behöver koppla denna till html interface
+                
                 var task1 = omdbRepository.GetMovieBySearchAsync(movieName);
                 var task2 = omdbRepository.GetMovieByTitleAsync(movieName);
 
@@ -32,8 +37,10 @@ namespace interaktiva14.Controllers
                 
                 var searchResult = await task1;
                 var movieInfo = await task2;
-
+                
                 var model = new HomeViewModel(searchResult, movieInfo);
+                */
+                var model = new HomeViewModel();
                 return View(model);
             }
             catch (System.Exception)
@@ -43,6 +50,12 @@ namespace interaktiva14.Controllers
                 return View(model);
                 throw;
             }
+        }
+        
+        
+        private List<MovieResultDto> CombineMovieInfo(){
+            var movies = new List<MovieResultDto>();
+            return movies;
         }
     }
 }

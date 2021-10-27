@@ -36,13 +36,33 @@ namespace interaktiva14.Repositories
 
         public async Task<MovieByTitleIdDto> GetMovieByIdAsync(string movieName)
         {
-            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
+            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&i={movieName}&plot=full");
             return result;
         }
 
-        public async Task<IEnumerable<MovieResultDto>> GetMovieResultDto()
+        public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)
         {
-            return null;
+            var tasks = new List<Task>();
+            var movies = new List<MovieResultDto>();
+            var result = await GetMovieBySearchAsync(movieName);
+            foreach (var movie in result.Search)
+            {
+                tasks.Add(
+                    Task.Run(
+                        async() => {
+                            var movieInfo = await GetMovieByIdAsync(movie.imdbID);
+                            MovieResultDto movieResultDto = new MovieResultDto(){
+                                Title = movieInfo.Title,
+                                Plot = movieInfo.Plot,
+                                imdbID = movieInfo.imdbID
+                            };
+                            movies.Add(movieResultDto);
+                       }
+                    )
+                );
+            };
+
+            return movies;
         }
     }
 }

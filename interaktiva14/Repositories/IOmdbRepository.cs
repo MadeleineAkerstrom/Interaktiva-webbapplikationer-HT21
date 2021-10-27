@@ -16,5 +16,6 @@ namespace interaktiva14.Repositories
         /// <returns>MovieBySearchDto</returns>
         Task<MovieBySearchDto> GetMovieBySearchAsync(string movieName);
         Task<MovieByTitleIdDto> GetMovieByTitleAsync(string movieName);
+        Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName);
     }
 }

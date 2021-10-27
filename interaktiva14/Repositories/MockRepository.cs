@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using interaktiva14.Models;
@@ -32,6 +33,17 @@ namespace DemoInteraktiva.Repositories
         {
             await Task.Delay(0);
             return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
+        }
+
+        public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)
+        {
+           var searchMovie = await GetMovieBySearchAsync(movieName); 
+        
+            for (int i = 0; i < searchMovie.Search.Count; i++)
+            {
+                var movieInformation = await GetMovieByTitleAsync(searchMovie.Search[i].Title);
+            }
+            return null;
         }
 
         private T GetTestData<T>(string testfile)
