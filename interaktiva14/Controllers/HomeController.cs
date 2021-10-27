@@ -23,8 +23,8 @@ namespace interaktiva14.Controllers
         {
             string movieName = "Dune"; // Behöver koppla denna till html interface
             var searchResult = await omdbRepository.GetMovieBySearchAsync(movieName);
-            var movieInfo = await omdbRepository.GetMovieByTitleIdAsync("Dune");
-            var model = new HomeViewModel(searchResult);
+            var movieInfo = await omdbRepository.GetMovieByTitleIdAsync(movieName);
+            var model = new HomeViewModel(searchResult, movieInfo);
             return View(model);
         }
     }
