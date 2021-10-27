@@ -16,31 +16,33 @@ namespace interaktiva14.Controllers
         private IOmdbRepository omdbRepository;
         private ICmdbRepository cmdbRepository;
 
-        public HomeController(IOmdbRepository omdbRepository)
+        public HomeController(IOmdbRepository omdbRepository, ICmdbRepository cmdbRepository)
         {
             this.omdbRepository = omdbRepository;
+            this.cmdbRepository = cmdbRepository;
         }
+       
         public async Task<IActionResult> Index()
         {
-            var searchResult = await omdbRepository.GetSearchResultMovieInfo("Dune");
+            //var searchResult = await omdbRepository.GetSearchResultMovieInfo("Dune");
             try
             {
                 
-                
-                /*
                 string movieName = "Dune"; // Behöver koppla denna till html interface
-                
                 var task1 = omdbRepository.GetMovieBySearchAsync(movieName);
                 var task2 = omdbRepository.GetMovieByTitleAsync(movieName);
+                var task3 = cmdbRepository.GetMovieToplist();
 
-                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
+                await Task.WhenAll(task1, task2, task3); // Väntar till alla uppgifter har kört klart. 
                 
-                var searchResult = await task1;
+                var _searchResult = await task1;
                 var movieInfo = await task2;
                 
-                var model = new HomeViewModel(searchResult, movieInfo);
-                */
-                var model = new HomeViewModel();
+                var top4 = await task3;
+
+                var model = new HomeViewModel(_searchResult, movieInfo);
+                
+                //var model = new HomeViewModel();
                 return View(model);
             }
             catch (System.Exception)

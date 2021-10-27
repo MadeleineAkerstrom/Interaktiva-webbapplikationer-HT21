@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace DemoInteraktiva.Repositories
 {
-    public class MockRepository : IOmdbRepository
+    public class MockRepository : IOmdbRepository, ICmdbRepository
     {
         private readonly string basePath;
         public MockRepository(IWebHostEnvironment environment)
@@ -33,6 +33,11 @@ namespace DemoInteraktiva.Repositories
         {
             await Task.Delay(0);
             return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
+        }
+        public async Task<CmdbDto> GetMovieToplist()
+        {
+            await Task.Delay(0);
+            return GetTestData<CmdbDto>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
         public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)

@@ -29,8 +29,8 @@ namespace interaktiva14
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IOmdbRepository, OmdbRepository>(); // L�gger till Repository som ett objekt vid startup. Som kan kommas �t i hela programmet.
-            services.AddScoped<ICmdbRepository, CmdbRepository>();
+            services.AddScoped<IOmdbRepository, MockRepository>(); // L�gger till Repository som ett objekt vid startup. Som kan kommas �t i hela programmet.
+            services.AddScoped<ICmdbRepository, MockRepository>();
             services.AddScoped<IApiClient, ApiClient>();
             
             _moviesApiKey = Configuration["Movies:ServiceApiKey"];
