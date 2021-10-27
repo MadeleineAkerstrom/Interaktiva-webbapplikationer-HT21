@@ -65,6 +65,14 @@ input, select, textarea {
 	appearance: none;
 }
 
+.top5 {
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+	font-weight: bold;
+}
+
+
 /* Header */
 .topnav {
 	display: flex;	
