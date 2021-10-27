@@ -28,10 +28,21 @@ namespace interaktiva14.Repositories
             return result;
         }
 
-        public async Task<MovieByTitleIdDto> GetMovieByTitleIdAsync(string movieName)
+        public async Task<MovieByTitleIdDto> GetMovieByTitleAsync(string movieName)
         {
             var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
             return result;
+        }
+
+        public async Task<MovieByTitleIdDto> GetMovieByIdAsync(string movieName)
+        {
+            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
+            return result;
+        }
+
+        public async Task<IEnumerable<MovieResultDto>> GetMovieResultDto()
+        {
+            return null;
         }
     }
 }

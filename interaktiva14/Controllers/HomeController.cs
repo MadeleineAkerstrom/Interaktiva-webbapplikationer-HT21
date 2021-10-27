@@ -14,6 +14,7 @@ namespace interaktiva14.Controllers
     public class HomeController : Controller
     {
         private IOmdbRepository omdbRepository;
+        private ICmdbRepository cmdbRepository;
 
         public HomeController(IOmdbRepository omdbRepository)
         {
@@ -21,11 +22,27 @@ namespace interaktiva14.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            string movieName = "Dune"; // Behöver koppla denna till html interface
-            var searchResult = await omdbRepository.GetMovieBySearchAsync(movieName);
-            var movieInfo = await omdbRepository.GetMovieByTitleIdAsync(movieName);
-            var model = new HomeViewModel(searchResult, movieInfo);
-            return View(model);
+            try
+            {
+                 string movieName = "Dune"; // Behöver koppla denna till html interface
+                var task1 = omdbRepository.GetMovieBySearchAsync(movieName);
+                var task2 = omdbRepository.GetMovieByTitleAsync(movieName);
+
+                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
+                
+                var searchResult = await task1;
+                var movieInfo = await task2;
+
+                var model = new HomeViewModel(searchResult, movieInfo);
+                return View(model);
+            }
+            catch (System.Exception)
+            {
+                var model = new HomeViewModel();
+                ModelState.AddModelError(string.Empty, "Fick inte kontakt med OMDb statistiken");
+                return View(model);
+                throw;
+            }
         }
     }
 }

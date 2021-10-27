@@ -42,5 +42,10 @@ namespace interaktiva14.Models.ViewModels
             Title = movieByTitleId.Title;
             // etc... 
         }
+
+        public HomeViewModel()
+        {
+            
+        }
     }
 }
