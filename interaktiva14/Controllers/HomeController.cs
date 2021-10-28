@@ -39,8 +39,8 @@ namespace interaktiva14.Controllers
                 var movieInfo = await task2;
                 var top5 = await task3;
 
-                var test = AddMovieInformation(_searchResult);
-                var model = new HomeViewModel(_searchResult, movieInfo, top5);
+                var searchResult = await AddMovieInformation(_searchResult);
+                var model = new HomeViewModel(searchResult);
                 
                 //var model = new HomeViewModel();
 
