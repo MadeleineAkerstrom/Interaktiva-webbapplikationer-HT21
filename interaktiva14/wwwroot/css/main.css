@@ -65,46 +65,70 @@ input, select, textarea {
 	appearance: none;
 }
 
-.top5 {
-	display: flex;
-	justify-content: space-evenly;
-	text-align: center;
-	font-weight: bold;
-}
-
 
 /* Header */
-.topnav {
-	display: flex;	
-	flex-direction: row;
+.cmdbheader {
+	background: #171a1c  ;
+	padding: 2em;
+  	margin: 0 auto;
+}
+
+.cmdbform {
+	display: flex;
+	flex-wrap: wrap;
+	width: 85%;
+	margin: 0 auto;
+}
+input[type="search"] {
+	border: none;
+	white-space: wrap;
+	border-radius: 5px 5px 5px 5px;
+	background: #E9E9E9;
 	overflow: hidden;
-	background-color: #474f51 ;
-	text-align: center;
-	min-height: 160px;
-	width: 100%;
-}
-.topnav a {
-
-	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0.35em 0.75em;
+	border: none;
+	font-size: 1.1em;
 	text-decoration: none;
+	line-height: normal;
+	max-height: 3em;
+	flex: 2 0 250px;
+  }
+  input[type="search"]:focus {
+	background: rgba(213, 255, 216, 0.658);
 	color: white;
-	font-size: 20px;
-
-}
-.topnav #logo {
-	justify-content: flex-start;
-	font-size: 60px;
-	text-align: center;
-	width: 50%;
-}
-.topnav #search-container  {
+	letter-spacing: .1em;
+	transition: background 400ms ease-in-out;
+	outline: none;
+  }
+  .search-button {
+	flex: 1 0 90px;
+	
+	max-height: 3em;
+	font-size: 1.1em;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	border-radius: 0px 5px 5px 0px;
+	background: silver;
+	color: white;
+	border: none;
+	padding: 0.35em 0.75em;
 	cursor: pointer;
-	justify-content: flex-end;
-	width: 50%;
-}
+	text-decoration: none;
+  
+  }
+  .search-button:hover {
+	background: #3CB371;
+  }
 
-
-
+  #logo {
+	  text-decoration: none;
+	  color: white;
+	  font-size: 30px;
+	  margin: 30px;
+	  text-align: center;
+  }
 /* Basic */
 
 	
@@ -118,7 +142,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #D4D9DD url("images/bg03.jpg");
+		background: #D4D9DD url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
 		color: #474f51;
 		font-size: 13.5pt;
 		font-family: 'Yanone Kaffeesatz';
@@ -199,6 +223,8 @@ input, select, textarea {
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
+		
+
 	}
 
 		.row > * {
@@ -279,6 +305,8 @@ input, select, textarea {
 
 		.row > .col-6 {
 			width: 50%;
+			background: rgba(56, 67, 70, 0.3);
+			padding: 10px;
 		}
 
 		.row > .off-6 {
@@ -1699,6 +1727,7 @@ input, select, textarea {
 		text-shadow: 1px 1px 1px white;
 		color: #546b76;
 		text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+		background-color: #171a1c;
 	}
 
 		#footer h2 {
