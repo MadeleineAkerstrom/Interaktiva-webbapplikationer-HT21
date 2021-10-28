@@ -33,13 +33,13 @@ namespace interaktiva14.Controllers
                 var task2 = omdbRepository.GetMovieByTitleAsync(movieName);
                 var task3 = cmdbRepository.GetMovieToplist();
 
-                await Task.WhenAll(task1, task2, task3); // Väntar till alla uppgifter har kört klart. 
+                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
                 
                 var _searchResult = await task1;
                 var movieInfo = await task2;
-                
-                var top4 = await task3;
+                //var top5 = await task3;
 
+                var test = AddMovieInformation(_searchResult);
                 var model = new HomeViewModel(_searchResult, movieInfo);
                 
                 //var model = new HomeViewModel();
@@ -53,10 +53,30 @@ namespace interaktiva14.Controllers
                 throw;
             }
         }
-        
-        
-        private List<MovieResultDto> CombineMovieInfo(){
+
+        private async Task<List<MovieResultDto>> AddMovieInformation(MovieBySearchDto result)
+        {
+            var tasks = new List<Task>();
             var movies = new List<MovieResultDto>();
+            foreach (var movie in result.Search)
+            {
+                tasks.Add(
+                    Task.Run(
+                        async () =>
+                        {
+                            var movieInfo = await omdbRepository.GetMovieByIdAsync(movie.imdbID);
+                            MovieResultDto movieResultDto = new MovieResultDto()
+                            {
+                                Title = movieInfo.Title,
+                                Plot = movieInfo.Plot,
+                                imdbID = movieInfo.imdbID
+                            };
+                            movies.Add(movieResultDto);
+                        }
+                    )
+                );
+            };
+            await Task.WhenAll(tasks);
             return movies;
         }
     }

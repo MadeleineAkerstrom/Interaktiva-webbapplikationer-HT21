@@ -42,13 +42,26 @@ namespace DemoInteraktiva.Repositories
 
         public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)
         {
-           var searchMovie = await GetMovieBySearchAsync(movieName); 
-        
-            for (int i = 0; i < searchMovie.Search.Count; i++)
+            var tasks = new List<Task>();
+            var movies = new List<MovieResultDto>();
+            var result = await GetMovieBySearchAsync(movieName);
+            foreach (var movie in result.Search)
             {
-                var movieInformation = await GetMovieByTitleAsync(searchMovie.Search[i].Title);
-            }
-            return null;
+                tasks.Add(
+                    Task.Run(
+                        async() => {
+                            var movieInfo = await GetMovieByIdAsync(movie.imdbID);
+                            MovieResultDto movieResultDto = new MovieResultDto(){
+                                Title = movieInfo.Title,
+                                Plot = movieInfo.Plot,
+                                imdbID = movieInfo.imdbID
+                            };
+                            movies.Add(movieResultDto);
+                       }
+                    )
+                );
+            };
+            return movies;
         }
 
         private T GetTestData<T>(string testfile)
