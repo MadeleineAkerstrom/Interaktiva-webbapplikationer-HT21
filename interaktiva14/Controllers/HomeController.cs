@@ -33,14 +33,14 @@ namespace interaktiva14.Controllers
                 var task2 = omdbRepository.GetMovieByTitleAsync(movieName);
                 var task3 = cmdbRepository.GetMovieToplist();
 
-                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
+                await Task.WhenAll(task1, task2, task3); // Väntar till alla uppgifter har kört klart. 
                 
                 var _searchResult = await task1;
                 var movieInfo = await task2;
-                //var top5 = await task3;
+                var top5 = await task3;
 
                 var test = AddMovieInformation(_searchResult);
-                var model = new HomeViewModel(_searchResult, movieInfo);
+                var model = new HomeViewModel(_searchResult, movieInfo, top5);
                 
                 //var model = new HomeViewModel();
                 return View(model);

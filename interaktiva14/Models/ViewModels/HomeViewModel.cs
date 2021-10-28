@@ -16,7 +16,8 @@ namespace interaktiva14.Models.ViewModels
         public string Response { get;}
 
         // Movie club information from CMDb
-         public string imdbID { get; set; }
+        public List<ToplistDto> Toplist {get; set;}
+        public string imdbID { get; set; }
         public int numberOfLikes { get; set; }
         public int numberOfDislikes { get; set; }
 
@@ -30,7 +31,7 @@ namespace interaktiva14.Models.ViewModels
         public string Metascore { get; }
         public string imdbVotes { get; }
 
-        public HomeViewModel(MovieBySearchDto MovieBySearch, MovieByTitleIdDto movieByTitleId)
+        public HomeViewModel(MovieBySearchDto MovieBySearch, MovieByTitleIdDto movieByTitleId, CmdbDto cmdbDto)
         {
             // Movie Search
             Search = MovieBySearch.Search;
@@ -41,6 +42,8 @@ namespace interaktiva14.Models.ViewModels
             Plot = movieByTitleId.Plot;
             Title = movieByTitleId.Title;
             // etc... 
+
+          
         }
 
         public HomeViewModel()
