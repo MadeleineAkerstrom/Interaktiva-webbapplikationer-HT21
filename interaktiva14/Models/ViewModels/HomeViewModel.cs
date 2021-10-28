@@ -9,43 +9,18 @@ namespace interaktiva14.Models.ViewModels
 {
     public class HomeViewModel
     {
-        // Movie search
-        public List<MovieDto> Search { get;}
-        [DisplayFormat(DataFormatString ="st")]
-        public string totalResults { get;}
-        public string Response { get;}
-
         // Movie club information from CMDb
         public List<ToplistDto> Toplist {get; set;}
         public string imdbID { get; set; }
         public int numberOfLikes { get; set; }
         public int numberOfDislikes { get; set; }
 
-        // Movie information
-        public string Title { get; }
-        public string Year { get; }
-        public string Actors { get; }
-        public string Plot { get; }
-        public string Awards { get; }
-        public List<RatingsDto> Ratings { get; }
-        public string Metascore { get; }
-        public string imdbVotes { get; }
+        public List<MovieResultDto> Movies { get; set; }
 
-        public HomeViewModel(MovieBySearchDto MovieBySearch, MovieByTitleIdDto movieByTitleId, CmdbDto cmdbDto)
+        public HomeViewModel(List<MovieResultDto> searchResult)
         {
-            // Movie Search
-            Search = MovieBySearch.Search;
-            totalResults = MovieBySearch.totalResults;
-            Response = MovieBySearch.Response; 
-            
-            //Movie information
-            Plot = movieByTitleId.Plot;
-            Title = movieByTitleId.Title;
-            // etc... 
-
-          
+            Movies = searchResult;
         }
-
         public HomeViewModel()
         {
             

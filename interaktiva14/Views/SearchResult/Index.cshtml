@@ -16,16 +16,18 @@
 											<h3>A generic one column layout</h3>
 										</header>
 										<p>
+											<!--
 											<div class="flex-container">
                             				@for (var i = 0; i < 5; i++)
                             					{
                            				 			<div>
-                             			   				<h1>@Html.DisplayFor(model => model.Search[@i].Title)</h1>
-                                						<img src=@Model.Search[@i].Poster alt=@Model.Search[@i].Title>
-                                						<h1>@Html.DisplayFor(model => model.Search[@i].Year)</h1>
+                             			   				<h1>Html.DisplayFor(model => model.Search[i].Title)</h1>
+                                						<img src=Model.Search[i].Poster alt=Model.Search[i].Title>
+                                						<h1>Html.DisplayFor(model => model.Search[i].Year)</h1>
                             						</div>
                              					}
                        						</div> 
+											-->
 										</p> 
 										<p>
 											Sed faucibus viverra ligula, non varius magna semper vitae. Donec eu justo ut ipsum
