@@ -39,10 +39,11 @@ namespace interaktiva14.Controllers
                 var movieInfo = await task2;
                 //var top5 = await task3;
 
-                var test = AddMovieInformation(_searchResult);
-                var model = new HomeViewModel(_searchResult, movieInfo);
+                var searchResult = await AddMovieInformation(_searchResult);
+                var model = new HomeViewModel(searchResult);
                 
                 //var model = new HomeViewModel();
+
                 return View(model);
             }
             catch (System.Exception)
@@ -58,25 +59,39 @@ namespace interaktiva14.Controllers
         {
             var tasks = new List<Task>();
             var movies = new List<MovieResultDto>();
-            foreach (var movie in result.Search)
+            try
             {
-                tasks.Add(
-                    Task.Run(
-                        async () =>
-                        {
-                            var movieInfo = await omdbRepository.GetMovieByIdAsync(movie.imdbID);
-                            MovieResultDto movieResultDto = new MovieResultDto()
+                foreach (var movie in result.Search)
+                {
+                    tasks.Add(
+                        Task.Run(
+                            async () =>
                             {
-                                Title = movieInfo.Title,
-                                Plot = movieInfo.Plot,
-                                imdbID = movieInfo.imdbID
-                            };
-                            movies.Add(movieResultDto);
-                        }
-                    )
-                );
-            };
-            await Task.WhenAll(tasks);
+                                var movieInfo = await omdbRepository.GetMovieByIdAsync(movie.imdbID);
+                                MovieResultDto movieResultDto = new MovieResultDto()
+                                {
+                                    Title = movieInfo.Title,
+                                    Year = movieInfo.Year,
+                                    Actors = movieInfo.Actors,
+                                    Plot = movieInfo.Plot,
+                                    Awards = movieInfo.Awards,
+                                    Ratings = movieInfo.Ratings,
+                                    Metascore = movieInfo.Metascore,
+                                    imdbVotes = movieInfo.imdbVotes,
+                                    imdbID = movieInfo.imdbID,
+                                    
+                                };
+                                movies.Add(movieResultDto);
+                            }
+                        )
+                    );
+                };
+                await Task.WhenAll(tasks);
+            }
+            catch (System.Exception)
+            { 
+                throw;
+            }
             return movies;
         }
     }
