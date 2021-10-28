@@ -40,28 +40,43 @@ namespace interaktiva14.Repositories
             return result;
         }
 
-        public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)
+        public async Task<List<MovieResultDto>> GetMovieInfo(MovieBySearchDto result)
         {
             var tasks = new List<Task>();
             var movies = new List<MovieResultDto>();
-            var result = await GetMovieBySearchAsync(movieName);
-            foreach (var movie in result.Search)
+            try
             {
-                tasks.Add(
-                    Task.Run(
-                        async() => {
-                            var movieInfo = await GetMovieByIdAsync(movie.imdbID);
-                            MovieResultDto movieResultDto = new MovieResultDto(){
-                                Title = movieInfo.Title,
-                                Plot = movieInfo.Plot,
-                                imdbID = movieInfo.imdbID
-                            };
-                            movies.Add(movieResultDto);
-                       }
-                    )
-                );
-            };
-
+                foreach (var movie in result.Search)
+                {
+                    tasks.Add(
+                        Task.Run(
+                            async () =>
+                            {
+                                var movieInfo = await GetMovieByIdAsync(movie.imdbID);
+                                MovieResultDto movieResultDto = new MovieResultDto()
+                                {
+                                    Title = movieInfo.Title,
+                                    Year = movieInfo.Year,
+                                    Actors = movieInfo.Actors,
+                                    Plot = movieInfo.Plot,
+                                    Awards = movieInfo.Awards,
+                                    Ratings = movieInfo.Ratings,
+                                    Metascore = movieInfo.Metascore,
+                                    imdbVotes = movieInfo.imdbVotes,
+                                    imdbID = movieInfo.imdbID,
+                                    Poster = movie.Poster
+                                };
+                                movies.Add(movieResultDto);
+                            }
+                        )
+                    );
+                };
+                await Task.WhenAll(tasks);
+            }
+            catch (System.Exception)
+            { 
+                throw;
+            }
             return movies;
         }
     }

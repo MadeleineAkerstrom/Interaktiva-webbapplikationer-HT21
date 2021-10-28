@@ -40,28 +40,9 @@ namespace DemoInteraktiva.Repositories
             return GetTestData<CmdbDto>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
-        public async Task<List<MovieResultDto>> GetSearchResultMovieInfo(string movieName)
+        public Task<List<MovieResultDto>> GetMovieInfo(MovieBySearchDto result)
         {
-            var tasks = new List<Task>();
-            var movies = new List<MovieResultDto>();
-            var result = await GetMovieBySearchAsync(movieName);
-            foreach (var movie in result.Search)
-            {
-                tasks.Add(
-                    Task.Run(
-                        async() => {
-                            var movieInfo = await GetMovieByIdAsync(movie.imdbID);
-                            MovieResultDto movieResultDto = new MovieResultDto(){
-                                Title = movieInfo.Title,
-                                Plot = movieInfo.Plot,
-                                imdbID = movieInfo.imdbID
-                            };
-                            movies.Add(movieResultDto);
-                       }
-                    )
-                );
-            };
-            return movies;
+            throw new NotImplementedException();
         }
 
         private T GetTestData<T>(string testfile)

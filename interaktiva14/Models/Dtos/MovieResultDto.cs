@@ -13,6 +13,7 @@ namespace interaktiva14.Models
         public string Metascore { get; set; }
         public string imdbVotes { get; set; }
         public string imdbID { get; set; }
+        public string Poster { get; set; }
 
         public int numberOfLikes { get; set; }
         public int numberOfDislikes { get; set; }
