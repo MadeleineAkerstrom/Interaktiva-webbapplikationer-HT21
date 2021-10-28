@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE HTML>
 
 <html>
 	<head>
@@ -9,23 +10,17 @@
 		<link rel="stylesheet" href="~/css/main.css"/>
 	</head>
 
-    <!-- Header --> 
-       
-            <div class="topnav">
-                
-                <!-- Logo -->
-                <h1><a href="index.html" id="logo">CMDb Community</a></h1>
-                            
-                    <div id="search-container">
-                        <input type="text" placeholder="Search.." name="MovieName" value="">
-                       
-                          <a href="#" class="button-large">Search!</a>  
-                    </div> 
-            </div>
-      
+    <div class="cmdbheader">
+        <form class="cmdbform">
+            <h1><a href="index.html" id="logo">CMDb Community</a></h1>
+            <input type="search" placeholder="Search.." name="MovieName" value="">
+            <a href="#" class="search-button">Search!</a> 
+            <a asp-action="Index" asp-controller="SearchResult" asp-route-id="@Model.MovieBySearchDto"></a>
+        </form>
+    </div>
 
         @RenderBody()
-
+    <div id="footer">
         <!-- Footer -->
 
             <!-- Copyright -->
@@ -38,4 +33,5 @@
                 <script src="assets/js/breakpoints.min.js"></script>
                 <script src="assets/js/util.js"></script>
                 <script src="assets/js/main.js"></script>
+    </div>
 </html>
