@@ -10,7 +10,8 @@ namespace interaktiva14.Models.ViewModels
     public class HomeViewModel
     {
         // Movie club information from CMDb
-         public string imdbID { get; set; }
+        public List<ToplistDto> Toplist {get; set;}
+        public string imdbID { get; set; }
         public int numberOfLikes { get; set; }
         public int numberOfDislikes { get; set; }
 
