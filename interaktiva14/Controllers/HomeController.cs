@@ -32,7 +32,7 @@ namespace interaktiva14.Controllers
                 var top5 = await task3;
                 var toplist = await omdbRepository.GetMovieInfo(null);
                 var model = new HomeViewModel(toplist);
-
+                
                 return View(model);
             }
             catch (System.Exception)

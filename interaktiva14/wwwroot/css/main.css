@@ -116,6 +116,8 @@ input[type="search"] {
 	padding: 0.35em 0.75em;
 	cursor: pointer;
 	text-decoration: none;
+	text-align: center;
+
   
   }
   .search-button:hover {
@@ -129,6 +131,10 @@ input[type="search"] {
 	  margin: 30px;
 	  text-align: center;
   }
+
+/* SearchResult */
+#more {display: none;}
+
 /* Basic */
 
 	

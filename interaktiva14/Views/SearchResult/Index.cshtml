@@ -19,10 +19,21 @@
 													<div class="col-4">
 														<!-- Feature #1 -->
 														<section>
+															
 															<h1>@Html.DisplayFor(model => model.Movies[@i].Title)</h1>
 															<img src=@Model.Movies[@i].Poster alt=@Model.Movies[@i].Title>
 															<h1>@Html.DisplayFor(model => model.Movies[@i].Year)</h1>
-															<p>@Html.DisplayFor(model => model.Movies[@i].Plot)</p>
+															
+															<p> Plot blablalbalbal
+																<span id="dots_@(i)">...</span>
+																<span id="more_@(i)">
+																	@Html.DisplayFor(model => model.Movies[@i].Plot)
+																</span>
+															</p>
+
+															<button onclick="readMoreFunction(@i)" id="myBtn_@(i)">Read more</button>
+															<a href="#" class="button-large">Like</a> 
+															<a href="#" class="button-large">Dislike</a> 
 														</section>
 													</div>
 												}

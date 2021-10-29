@@ -17,13 +17,12 @@ namespace interaktiva14.Controllers
             this.omdbRepository = omdbRepository;
             this.cmdbRepository = cmdbRepository;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchMovieName)
         {
-            //var searchResult = await omdbRepository.GetSearchResultMovieInfo("Dune");
             try
             {
-                string movieName = "Titanic"; // Behöver koppla denna till html interface
-                var task1 = omdbRepository.GetMovieBySearchAsync(movieName);
+                
+                var task1 = omdbRepository.GetMovieBySearchAsync("Back to the future");
 
                 await Task.WhenAll(task1); // Väntar till alla uppgifter har kört klart. 
                 
@@ -43,11 +42,9 @@ namespace interaktiva14.Controllers
             }
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            var task1 = omdbRepository.GetMovieBySearchAsync("ssdfs");
-            // Here's where you do stuff.
-        }
-
+            //Do somthing
+        }  
     }
 }
