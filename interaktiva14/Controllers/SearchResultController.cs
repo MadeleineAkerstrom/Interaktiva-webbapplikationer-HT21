@@ -21,8 +21,7 @@ namespace interaktiva14.Controllers
         {
             try
             {
-                
-                var task1 = omdbRepository.GetMovieBySearchAsync("Back to the future");
+                var task1 = omdbRepository.GetMovieBySearchAsync(searchMovieName);
 
                 await Task.WhenAll(task1); // Väntar till alla uppgifter har kört klart. 
                 
@@ -41,10 +40,5 @@ namespace interaktiva14.Controllers
                 throw;
             }
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Do somthing
-        }  
     }
 }

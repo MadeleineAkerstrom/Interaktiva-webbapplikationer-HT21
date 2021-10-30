@@ -1,19 +1,18 @@
 @model interaktiva14.Models.ViewModels.SearchResultViewModel
+<script type="text/javascript" src="~/js/site.js"></script>
 
 <body class="subpage">
 		<div id="page-wrapper">
-
 			<!-- Content -->
 				<section id="content">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
-
 								<!-- Main Content -->
 									<!-- Features -->
 									<section id="features">
 										<div class="container">
-											<div class="row">
+											<div class="row">	
 												@for (var i = 0; i < Model.Movies.Count; i++)
                             					{
 													<div class="col-4">
@@ -32,8 +31,7 @@
 															</p>
 
 															<button onclick="readMoreFunction(@i)" id="myBtn_@(i)">Read more</button>
-															<a href="#" class="button-large">Like</a> 
-															<a href="#" class="button-large">Dislike</a> 
+															
 														</section>
 													</div>
 												}

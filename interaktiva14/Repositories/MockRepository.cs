@@ -51,5 +51,15 @@ namespace DemoInteraktiva.Repositories
             string data = File.ReadAllText(path);
             return JsonConvert.DeserializeObject<T>(data);
         }
+
+        public Task<ToplistDto> DecreaseNumberOfLikes(string imdbID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ToplistDto> IncreaseNumberOfLikes(string imdbID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
