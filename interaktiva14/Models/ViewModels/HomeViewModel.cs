@@ -17,10 +17,7 @@ namespace interaktiva14.Models.ViewModels
             Toplist = movieList.OrderByDescending(o=>o.NumberOfLikes).ToList(); // Sorterar listan baserat på antal likes. 
         }
         public HomeViewModel()
-        {
-            
+        {   
         }
-
-        
     }
 }

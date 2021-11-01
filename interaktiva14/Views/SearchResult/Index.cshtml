@@ -1,5 +1,5 @@
 @model interaktiva14.Models.ViewModels.SearchResultViewModel
-<script type="text/javascript" src="~/js/site.js"></script>
+
 
 <body class="subpage">
 		<div id="page-wrapper">
@@ -22,15 +22,16 @@
 															<h1>@Html.DisplayFor(model => model.Movies[@i].Title)</h1>
 															<img src=@Model.Movies[@i].Poster alt=@Model.Movies[@i].Title>
 															<h1>@Html.DisplayFor(model => model.Movies[@i].Year)</h1>
-															
-															<p> Plot blablalbalbal
-																<span id="dots_@(i)">...</span>
-																<span id="more_@(i)">
-																	@Html.DisplayFor(model => model.Movies[@i].Plot)
-																</span>
-															</p>
 
-															<button onclick="readMoreFunction(@i)" id="myBtn_@(i)">Read more</button>
+															<div class="description">
+																<div class="expandMoreContent" id="showMoreContent@(i)"> 
+																	<p>@Model.Movies[@i].Plot</p>
+																</div>
+																<div class="expandMoreHolder">
+																	<span expand-more data-hidetext="Show Less..." data-showtext="Show More..." data-target="showMoreContent@(i)" class="btn-expand-more">...Show More</span>
+																</div>
+															</div>
+
 															
 														</section>
 													</div>
