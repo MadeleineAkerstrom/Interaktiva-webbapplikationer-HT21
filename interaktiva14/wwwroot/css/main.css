@@ -311,7 +311,7 @@ input[type="search"] {
 
 		.row > .col-6 {
 			width: 50%;
-			background: rgba(56, 67, 70, 0.3);
+			background: rgba(0, 0, 0, 0.85);
 			padding: 10px;
 		}
 
