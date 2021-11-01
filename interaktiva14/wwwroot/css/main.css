@@ -1576,6 +1576,27 @@ input[type="search"] {
 			background-color: #ce1a00;
 			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		}
+	
+	.expandMoreContent {
+		height: 40px ;
+		overflow: hidden;
+		transition: height 0.5s ease-in-out;
+		position: relative;
+
+	}
+	.expandMoreContent.expand-active {
+		height: auto;
+		transition: height 0.5s ease-in-out;
+	}
+	.expandMoreHolder {
+		padding: 15px 0;
+		text-align: center;
+	}
+	.btn-expand-more {
+		cursor: pointer;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		display: inline-block;
+	}
 
 /* Header */
 
