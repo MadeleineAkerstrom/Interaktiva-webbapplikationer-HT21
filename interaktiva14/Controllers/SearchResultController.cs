@@ -27,7 +27,7 @@ namespace interaktiva14.Controllers
                 
                 var _searchResult = await task1;
 
-                var searchResult = await omdbRepository.GetMovieInfo(_searchResult);
+                var searchResult = await omdbRepository.GetMovieInfoAsync(_searchResult);
                 var model = new SearchResultViewModel(searchResult);
                 
                 return View(model);

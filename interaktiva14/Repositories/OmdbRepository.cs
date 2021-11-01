@@ -40,7 +40,7 @@ namespace interaktiva14.Repositories
             return result;
         }
 
-        public async Task<List<MovieResultDto>> GetMovieInfo(MovieBySearchDto result)
+        public async Task<List<MovieResultDto>> GetMovieInfoAsync(MovieBySearchDto result) //  List<imdbID> result
         {
             var tasks = new List<Task>();
             var movies = new List<MovieResultDto>();
@@ -57,6 +57,9 @@ namespace interaktiva14.Repositories
                                 {
                                     Title = movieInfo.Title,
                                     Year = movieInfo.Year,
+                                    Released = movieInfo.Released,
+                                    Genre = movieInfo.Genre,
+                                    Director = movieInfo.Director,
                                     Actors = movieInfo.Actors,
                                     Plot = movieInfo.Plot,
                                     Awards = movieInfo.Awards,
@@ -64,7 +67,9 @@ namespace interaktiva14.Repositories
                                     Metascore = movieInfo.Metascore,
                                     imdbVotes = movieInfo.imdbVotes,
                                     imdbID = movieInfo.imdbID,
-                                    Poster = movie.Poster
+                                    Poster = movieInfo.Poster,
+                                    numberOfLikes = movie.NumberOfLikes,
+                                    numberOfDislikes = movie.NumberOfDislikes
                                 };
                                 movies.Add(movieResultDto);
                             }

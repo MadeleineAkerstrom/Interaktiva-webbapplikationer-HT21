@@ -27,9 +27,11 @@ namespace interaktiva14.Controllers
             try     
             {
                 var top5 = await cmdbRepository.GetMovieToplist();
-                //var toplistInfo = await omdbRepository.GetMovieInfo(null);
-                var model = new HomeViewModel(top5);
-                //model = new HomeViewModel(top5);
+                
+                var movie = ConvertToMovieBySearch(top5);
+
+                var toplistInfo = await omdbRepository.GetMovieInfoAsync(movie);
+                var model = new HomeViewModel(toplistInfo);
                 return View(model);
             }
             catch (System.Exception)
@@ -39,6 +41,30 @@ namespace interaktiva14.Controllers
                 return View(model);
                 throw;
             }
+        }
+        /// <summary>
+        ///  Returns top5 converted to MovieBySearchDto object
+        /// </summary>
+        /// <param name="top5">top5</param>
+        /// <returns>MovieBySearchDto</returns>
+        private MovieBySearchDto ConvertToMovieBySearch(List<ToplistDto> top5)
+        {
+            var search = new List<MovieDto>();
+
+            foreach (var toplistMovie in top5)
+            {
+                MovieDto movieDto = new MovieDto(){
+                    imdbID = toplistMovie.imdbID,
+                    NumberOfLikes = toplistMovie.numberOfLikes,
+                    NumberOfDislikes = toplistMovie.numberOfDislikes                    
+                };
+                search.Add(movieDto);
+            }
+
+            MovieBySearchDto movieBySearchDto = new MovieBySearchDto(){
+                Search = search
+            };
+            return movieBySearchDto;
         }
     }
 }

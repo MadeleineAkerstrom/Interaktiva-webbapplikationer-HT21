@@ -40,7 +40,7 @@ namespace DemoInteraktiva.Repositories
             return GetTestData<List<ToplistDto>>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
-        public Task<List<MovieResultDto>> GetMovieInfo(MovieBySearchDto result)
+        public Task<List<MovieResultDto>> GetMovieInfoAsync(MovieBySearchDto result)
         {
             throw new NotImplementedException();
         }

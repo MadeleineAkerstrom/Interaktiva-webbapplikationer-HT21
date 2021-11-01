@@ -8,8 +8,6 @@ function readMoreFunction(id) {
     var moreText = document.getElementById("more_" + id);
     var btnText = document.getElementById("myBtn_" + id);
 
-  
-
     if (dots.style.display === "none") {
       dots.style.display = "inline";
       btnText.innerHTML = "Read more";

@@ -11,8 +11,4 @@ namespace interaktiva14.Models
         public string totalResults { get; set; }
         public string Response { get; set; }
     }
-
-        
-
-
 }

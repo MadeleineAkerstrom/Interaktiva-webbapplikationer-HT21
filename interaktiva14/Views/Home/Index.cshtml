@@ -8,21 +8,18 @@
                 <div class="row">
                     <div class="col-6 col-12-medium">
                         <!-- Banner Copy -->
-                                                             
-                        <h1>@Model.Toplist[0].numberOfDislikes</h1>
-                        <h3>Genre, Released, Director</h3>
-                        <p>Plot of movie no1...........Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-											mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-											egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-											vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-											justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-											iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-                        </p>
+                        <h2>Number 1 move right now!</h2>                           
+                        <h1>@Model.Toplist[0].Title</h1>
+                        
+                        <h3>Genre: @Model.Toplist[0].Genre</h3>
+                        <h3>Released: @Model.Toplist[0].Released</h3>
+                        <h3>Director: @Model.Toplist[0].Director</h3>
+                        <p>@Model.Toplist[0].Plot</p>
                     </div>
                     <div class="col-6 col-12-medium imp-medium">
 
                         <!-- Banner Image -->
-                            <a href="#" class="bordered-feature-image"><img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="Popcorn image" /></a>
+                            <a href="#" class="bordered-feature-image"><img src=@Model.Toplist[0].Poster alt=@Model.Toplist[0].Title /></a>
                     </div>
                 </div>
             </div>
@@ -32,78 +29,24 @@
         <section id="features">
             <div class="container">
                 <div class="row">
-                    <div class="col-3 col-6-medium col-12-small">
 
-                        <!-- Feature #1 -->
-                        <section>
-                            <a href="#" class="bordered-feature-image"><img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="" /></a>
-                            <h2>Title Movie no2</h2>
-                            <h3>Genre, Released, Director</h3>
-                            <p>
-                                Plot of movie <strong>no2</strong> ...........Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-											mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-											egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-											vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-											justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-											iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-                            </p>
-                        </section>
+                    @for (int i = 1; i < 5; i++)
+                    {
+                        <div class="col-3 col-6-medium col-12-small">
 
-                    </div>
-                    <div class="col-3 col-6-medium col-12-small">
+                            <!-- Feature #1 -->
+                            <section>
+                                <a href="#" class="bordered-feature-image"><img src=@Model.Toplist[@i].Poster alt=@Model.Toplist[@i].Title /></a>
+                                <h2>Number @(i+1)</h2>
+                                <h2>@Model.Toplist[@i].Title</h2>
+                                <h3>Genre: @Model.Toplist[@i].Genre</h3>
+                                <h3>Released: @Model.Toplist[@i].Released</h3>
+                                <h3>Director: @Model.Toplist[@i].Director</h3>
+                                <p>@Model.Toplist[@i].Plot</p>
+                            </section>
 
-                        <!-- Feature #2 -->
-                        <section>
-                            <a href="#" class="bordered-feature-image"><img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="" /></a>
-                            <h2>Title Movie no3</h2>
-                            <h3>Genre, Released, Director</h3>
-                            <p>
-                                  Plot of movie <strong>no3</strong> ...........Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-											mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-											egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-											vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-											justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-											iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-                            </p>
-                        </section>
-
-                    </div>
-                    <div class="col-3 col-6-medium col-12-small">
-
-                        <!-- Feature #3 -->
-                        <section>
-                            <a href="#" class="bordered-feature-image"><img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="" /></a>
-                            <h2>Title Movie no4</h2>
-                            <h3>Genre, Released, Director</h3>
-                            <p>
-                                 Plot of movie <strong>no4</strong> ...........Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-											mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-											egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-											vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-											justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-											iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-                            </p>
-                        </section>
-
-                    </div>
-                    <div class="col-3 col-6-medium col-12-small">
-
-                        <!-- Feature #4 -->
-                        <section>
-                            <a href="#" class="bordered-feature-image"><img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="" /></a>
-                            <h2>Title Movie no5</h2>
-                            <h3>Genre, Released, Director</h3>
-                            <p>
-                                  Plot of movie <strong>no5</strong> ...........Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
-											mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
-											egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
-											vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
-											justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
-											iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
-                            </p>
-                        </section>
-
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </section>

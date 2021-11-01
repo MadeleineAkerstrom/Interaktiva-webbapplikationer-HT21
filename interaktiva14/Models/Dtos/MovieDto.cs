@@ -9,5 +9,7 @@
         public string Poster { get; set; }
         public string Plot { get; set; }
         public string Actors { get; set; }
+        public int NumberOfLikes { get; set; }
+        public int NumberOfDislikes { get; set; }
     }
 }
