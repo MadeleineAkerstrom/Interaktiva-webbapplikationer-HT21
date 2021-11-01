@@ -14,7 +14,7 @@ namespace interaktiva14.Repositories
         /// Retrieves toplist of movies from Cmdb
         /// </summary>
         /// <returns>CmdbDto</returns>
-        Task<CmdbDto> GetMovieToplist();
+        Task<List<ToplistDto>> GetMovieToplist();
         Task<ToplistDto> IncreaseNumberOfLikes(string imdbID);
     }
 }

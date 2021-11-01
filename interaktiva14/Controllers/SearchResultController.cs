@@ -40,5 +40,10 @@ namespace interaktiva14.Controllers
                 throw;
             }
         }
+
+        public IActionResult Like()
+        {
+            return Content("Hello World");
+        }
     }
 }

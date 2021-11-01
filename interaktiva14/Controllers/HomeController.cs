@@ -23,16 +23,13 @@ namespace interaktiva14.Controllers
         }
        
         public async Task<IActionResult> Index()
-        {
-            //var searchResult = await omdbRepository.GetSearchResultMovieInfo("Dune");
-            try
+        {       
+            try     
             {
-                var task3 = cmdbRepository.GetMovieToplist();
-                await Task.WhenAll(task3); // Väntar till alla uppgifter har kört klart. 
-                var top5 = await task3;
-                var toplist = await omdbRepository.GetMovieInfo(null);
-                var model = new HomeViewModel(toplist);
-                
+                var top5 = await cmdbRepository.GetMovieToplist();
+                //var toplistInfo = await omdbRepository.GetMovieInfo(null);
+                var model = new HomeViewModel(top5);
+                //model = new HomeViewModel(top5);
                 return View(model);
             }
             catch (System.Exception)

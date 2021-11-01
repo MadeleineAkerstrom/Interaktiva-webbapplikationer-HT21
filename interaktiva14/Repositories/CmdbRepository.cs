@@ -11,16 +11,17 @@ namespace interaktiva14.Repositories
     public class CmdbRepository : ICmdbRepository
     {
         private readonly IApiClient apiClient;
-        private readonly string baseEndpoint = "https://grupp9.dsvkurs.miun.se/api/";
-
+        private readonly string baseEndpoint = "https://grupp9.dsvkurs.miun.se/api";
+        
         public CmdbRepository(IApiClient apiClient)
         {
             this.apiClient = apiClient;
         }
-        public async Task<CmdbDto> GetMovieToplist()
+
+        public async Task<List<ToplistDto>> GetMovieToplist()
         {
             var top5 = "Toplist?sort=desc&count=5&type=ratings";
-            var result = await apiClient.GetAsync<CmdbDto>($"{baseEndpoint}{top5}");
+            var result = await apiClient.GetAsync<List<ToplistDto>>($"{baseEndpoint}/{top5}");
             return result; // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
