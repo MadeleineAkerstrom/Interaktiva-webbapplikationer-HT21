@@ -17,10 +17,10 @@ namespace DemoInteraktiva.Repositories
             basePath = $@"{environment.ContentRootPath}\Mock\"; // hämtar den absoluta sökvägen 
         }
 
-        public async Task<MovieByTitleIdDto> GetMovieByIdAsync(string movieName)
+        public async Task<MovieInformationDto> GetMovieByIdAsync(string movieName)
         {
             await Task.Delay(0);
-            return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
+            return GetTestData<MovieInformationDto>("movieByTitle.json");
         }
 
         public async Task<MovieBySearchDto> GetMovieBySearchAsync(string movieName)
@@ -29,10 +29,10 @@ namespace DemoInteraktiva.Repositories
             return GetTestData<MovieBySearchDto>("movieSearch.json");
         }
 
-        public async Task<MovieByTitleIdDto> GetMovieByTitleAsync(string movieName)
+        public async Task<MovieInformationDto> GetMovieByTitleAsync(string movieName)
         {
             await Task.Delay(0);
-            return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
+            return GetTestData<MovieInformationDto>("movieByTitle.json");
         }
         public async Task<List<ToplistDto>> GetMovieToplist()
         {
@@ -40,7 +40,7 @@ namespace DemoInteraktiva.Repositories
             return GetTestData<List<ToplistDto>>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
-        public Task<List<MovieResultDto>> GetMovieInfoAsync(MovieBySearchDto result)
+        public Task<List<MovieInformationDto>> GetMovieInfoAsync(MovieBySearchDto result)
         {
             throw new NotImplementedException();
         }

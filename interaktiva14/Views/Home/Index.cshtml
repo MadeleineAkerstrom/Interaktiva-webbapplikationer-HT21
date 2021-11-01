@@ -14,9 +14,18 @@
                         <h3>Genre: @Model.Toplist[0].Genre</h3>
                         <h3>Released: @Model.Toplist[0].Released</h3>
                         <h3>Director: @Model.Toplist[0].Director</h3>
-                        <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].numberOfLikes</h3>
-                        <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].numberOfDislikes</h3>
-                        <p>@Model.Toplist[0].Plot</p>
+                        <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].NumberOfLikes</h3>
+                        <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].NumberOfDislikes</h3>
+
+                        <div class="description">
+                            <div class="expandMoreContent" id="showMoreContent0"> 
+                                <p>@Model.Toplist[0].Plot</p>
+                            </div>
+                            <div class="expandMoreHolder">
+                                <span expand-more data-hidetext="Show Less..." data-showtext="Show More..." data-target="showMoreContent0" class="btn-expand-more">...Show More</span>
+                            </div>
+                        </div>
+                                
                         
                     </div>
                     <div class="col-6 col-12-medium imp-medium">
@@ -45,9 +54,19 @@
                                 <h3>Genre: @Model.Toplist[@i].Genre</h3>
                                 <h3>Released: @Model.Toplist[@i].Released</h3>
                                 <h3>Director: @Model.Toplist[@i].Director</h3>
-                                <h3 class="number-of-likes-@(i)">Number of Likes: @Model.Toplist[@i].numberOfLikes</h3>
-                                <h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Toplist[@i].numberOfDislikes</h3>
-                                <p>@Model.Toplist[@i].Plot</p>
+                                <h3 class="number-of-likes-@(i)">Number of Likes: @Model.Toplist[@i].NumberOfLikes</h3>
+                                <h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Toplist[@i].NumberOfDislikes</h3>
+                                
+                                 <div class="description">
+                                    <div class="expandMoreContent" id="showMoreContent@(i)"> 
+                                        <p>@Model.Toplist[@i].Plot</p>
+                                    </div>
+                                    <div class="expandMoreHolder">
+                                        <span expand-more data-hidetext="Show Less..." data-showtext="Show More..." data-target="showMoreContent@(i)" class="btn-expand-more">...Show More</span>
+                                    </div>
+                                </div>
+                                
+
                             </section>
 
                         </div>

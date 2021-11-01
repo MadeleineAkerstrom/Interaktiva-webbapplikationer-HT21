@@ -9,10 +9,10 @@ namespace interaktiva14.Models.ViewModels
 {
     public class SearchResultViewModel
     {
-        public List<MovieResultDto> Movies { get; set; }
+        public List<MovieInformationDto> Movies { get; set; }
         public string imdbID { get; set; }
 
-        public SearchResultViewModel(List<MovieResultDto> movieList)
+        public SearchResultViewModel(List<MovieInformationDto> movieList)
         {
             Movies = movieList;
         }
