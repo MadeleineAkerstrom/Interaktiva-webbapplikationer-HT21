@@ -34,10 +34,10 @@ namespace DemoInteraktiva.Repositories
             await Task.Delay(0);
             return GetTestData<MovieByTitleIdDto>("movieByTitle.json");
         }
-        public async Task<CmdbDto> GetMovieToplist()
+        public async Task<List<ToplistDto>> GetMovieToplist()
         {
             await Task.Delay(0);
-            return GetTestData<CmdbDto>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
+            return GetTestData<List<ToplistDto>>("top5.json"); // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
         public Task<List<MovieResultDto>> GetMovieInfo(MovieBySearchDto result)

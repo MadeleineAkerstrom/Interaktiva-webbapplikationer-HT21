@@ -12,18 +12,17 @@
 	</head>
 
     <div class="cmdbheader">
-        <!--
         <form class="cmdbform" method="get" action="simpleform.asp">
             <h1><a href="index.html" id="logo">CMDb Community</a></h1>
             <input type="search" placeholder="Search.." name="MovieName" value="">
             <a href="#" class="search-button">Search!</a> 
-            <asp:Button class="search-button" runat="server" onclick="Button1_Click" Text="Search!" />  
         </form>
-        -->
+
         @using (Html.BeginForm("Index", "SearchResult"))
         {          
-            <input type="text" name="searchMovieName">
-            <input type="submit" value="Submit">
+            <h1><a href="index.html" id="logo">CMDb Community</a></h1>
+            <input type="text" placeholder="Search.." name="searchMovieName">
+            <input class="search-button" type="submit" value="Submit">
         }
     </div>
 
