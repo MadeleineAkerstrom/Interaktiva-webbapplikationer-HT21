@@ -12,11 +12,7 @@
 	</head>
 
     <div class="cmdbheader">
-        <form class="cmdbform" method="get" action="simpleform.asp">
-            <h1><a href="index.html" id="logo">CMDb Community</a></h1>
-            <input type="search" placeholder="Search.." name="MovieName" value="">
-            <a href="#" class="search-button">Search!</a> 
-        </form>
+       
 
         @using (Html.BeginForm("Index", "SearchResult"))
         {          
