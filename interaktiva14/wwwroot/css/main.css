@@ -66,81 +66,75 @@ input, select, textarea {
 }
 
 
-/* Header */
-.search-result-header {
-	font-size: 50px;
-	text-align:center;
-	text-shadow: -1px -1px 1px rgb(0 0 0 / 75%);
+
+.toplist-header {
+    font-size: 50px;
+    text-align:center;
+    text-shadow: -1px -1px 1px rgb(0 0 0 / 75%);
     color: #a0a8ab;
-	margin: 0 0 40px 0;
+    margin: 0 0 40px 0;
 }
-
-.cmdbheader {
-	display: flex;
-	background: #171a1c  ;
-	padding: 2em;
-  	margin: 0 auto;
-	  
-}
-
-.cmdbsearch {
-	display: flex;
-	flex-wrap: wrap;
-	width: 85%;
-	margin: 0 auto;
-}
+/*header*/
 input[type="search"] {
-	border: none;
-	white-space: wrap;
-	border-radius: 5px 5px 5px 5px;
-	background: #E9E9E9;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	padding: 0.35em 0.75em;
-	border: none;
-	font-size: 1.1em;
-	text-decoration: none;
-	line-height: normal;
-	max-height: 3em;
-	flex: 2 0 250px;
+    border: none;
+    white-space: wrap;
+    border-radius: 5px 5px 5px 5px;
+    background: #E9E9E9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.35em 0.75em;
+    border: none;
+    font-size: 1.1em;
+    text-decoration: none;
+    line-height: normal;
+    max-height: 3em;
+    flex: 2 0 250px;
   }
   input[type="search"]:focus {
-	background: rgba(213, 255, 216, 0.658);
-	color: white;
-	letter-spacing: .1em;
-	transition: background 400ms ease-in-out;
-	outline: none;
+    background: rgba(213, 255, 216, 0.658);
+    color: white;
+    letter-spacing: .1em;
+    transition: background 400ms ease-in-out;
+    outline: none;
   }
   .search-button {
-	flex: 1 0 90px;
-	
-	max-height: 3em;
-	font-size: 1.1em;
-	letter-spacing: .2em;
-	text-transform: uppercase;
-	border-radius: 0px 5px 5px 0px;
-	background: silver;
-	color: white;
-	border: none;
-	padding: 0.35em 0.75em;
 	cursor: pointer;
-	text-decoration: none;
+	background: silver;
+    color: white;
+    border: none;
 	text-align: center;
+	border-radius: 0px 5px 5px 0px;
+	text-decoration: none;
+	flex: 1 0 90px;
+    max-height: 3em;
+    font-size: 1em;
+    letter-spacing: .2em;
+  }
 
-  
-  }
-  .search-button:hover {
-	background: #3CB371;
+.cmdbheader {
+    display: flex;
+    background: #171a1c  ;
+    padding: 2em;
+    margin: 0 auto;
+	padding-left: 8%;
+	
+      
+}
+
+.search-button:hover {
+    background: #3CB371;
   }
 
-  #logo {
-	  text-decoration: none;
-	  color: white;
-	  font-size: 30px;
-	  margin: 30px;
-	  text-align: left;
-  }
+#logo {
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	margin: 30px;
+	text-align: left;
+}
+
+
 
   .likebutton {
 	  background-color: rgb(124, 201, 109);
