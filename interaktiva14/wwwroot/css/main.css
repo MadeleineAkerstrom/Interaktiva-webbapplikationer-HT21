@@ -1539,6 +1539,11 @@ input[type="search"] {
 			width: 100%;
 		}
 
+	#imageFirstMovie {
+		max-width: max-content;
+		height: auto;
+	}
+
 	.button-large {
 		background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
 		background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
