@@ -14,7 +14,7 @@ namespace interaktiva14.Models.ViewModels
 
         public SearchResultViewModel(List<MovieInformationDto> movieList)
         {
-            Movies = movieList;
+            Movies = movieList.OrderByDescending(o=>o.NumberOfLikes).ToList(); // Sorterar listan baserat på antal likes. 
         }
         public SearchResultViewModel()
         {
