@@ -1,3 +1,4 @@
+using interaktiva14.Models;
 using interaktiva14.Models.ViewModels;
 using interaktiva14.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -22,13 +23,16 @@ namespace interaktiva14.Controllers
             try
             {
                 var task1 = omdbRepository.GetMovieBySearchAsync(searchMovieName);
-
-                await Task.WhenAll(task1); // Väntar till alla uppgifter har kört klart. 
+                var task2 = cmdbRepository.GetMovies();
+                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
                 
                 var _searchResult = await task1;
+                var movies = await task2;
 
                 var searchResult = await omdbRepository.GetMovieInfoAsync(_searchResult);
-                var model = new SearchResultViewModel(searchResult);
+                var updatedSearchResult = AddLikeDislikeToSearchResult(searchResult, movies);
+
+                var model = new SearchResultViewModel(updatedSearchResult);
                 
                 return View(model);
             }
@@ -40,10 +44,25 @@ namespace interaktiva14.Controllers
                 throw;
             }
         }
-
-        public IActionResult Like()
+        /// <summary>
+        ///  Checks if the search contains any likes or dislikes and adds it to the searchresult if it is so. 
+        /// </summary>
+        /// <param name="searchResults, movies">List<MovieInformationDto> searchResults, List<ToplistDto> movies</param>
+        /// <returns>List<MovieInformationDto></returns>
+        private List<MovieInformationDto> AddLikeDislikeToSearchResult(List<MovieInformationDto> searchResults, List<ToplistDto> movies)
         {
-            return Content("Hello World");
+            foreach (var searchResult in searchResults)
+            {
+                foreach (var movie in movies)
+                {
+                    if (searchResult.imdbID == movie.imdbID)
+                    {
+                        searchResult.NumberOfDislikes = movie.numberOfDislikes;
+                        searchResult.NumberOfLikes = movie.numberOfLikes;
+                    }
+                }
+            }
+            return searchResults;
         }
     }
 }

@@ -3,25 +3,14 @@
 
 // Write your JavaScript code.
 
-function readMoreFunction(id) {
-    var dots = document.getElementById("dots_" + id);
-    var moreText = document.getElementById("more_" + id);
-    var btnText = document.getElementById("myBtn_" + id);
+  document.getElementById("likeBtn").addEventListener("click", sendLike)
 
-    if (dots.style.display === "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "Read more";
-      moreText.style.display = "none";
-    } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "Read less";
-      moreText.style.display = "inline";
+  function sendLike() {
+        alert("Hello! I am an alert box!!");
     }
-  }
 
   function likeFunction()
   {
-    let test = document.getElementById("btn_1")
     console.log(test)
     const request = new Request('https://grupp9.dsvkurs.miun.se/api/Movie/tt1160419');
     console.log(request.json())
@@ -41,11 +30,6 @@ function readMoreFunction(id) {
     }).catch(error => {
       console.error(error);
     });
-  }
-
-  function dislikeFunction()
-  {
-
   }
 
   // Expand more/less

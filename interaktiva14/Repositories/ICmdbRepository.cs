@@ -9,6 +9,7 @@ namespace interaktiva14.Repositories
     public interface ICmdbRepository
     {
         Task<ToplistDto> DecreaseNumberOfLikes(string imdbID);
+        Task<List<ToplistDto>> GetMovies();
 
         /// <summary>
         /// Retrieves toplist of movies from Cmdb

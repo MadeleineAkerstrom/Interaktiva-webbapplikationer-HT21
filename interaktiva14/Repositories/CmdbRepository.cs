@@ -25,6 +25,12 @@ namespace interaktiva14.Repositories
             return result; // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
         }
 
+        public async Task<List<ToplistDto>> GetMovies()
+        {
+            var result = await apiClient.GetAsync<List<ToplistDto>>($"{baseEndpoint}/Toplist?sort=desc");
+            return result; // returnerar sökresultat med  imdbID, måste sedan använda sig av omdbAPI för att få titel mm.. 
+        }
+
         public async Task<ToplistDto> IncreaseNumberOfLikes(string imdbID)
         {
             var test = await apiClient.GetAsync<ToplistDto>($"{baseEndpoint}Movie/{imdbID}/like");

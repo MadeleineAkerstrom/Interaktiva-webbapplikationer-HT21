@@ -28,22 +28,22 @@ namespace interaktiva14.Repositories
             return result;
         }
 
-        public async Task<MovieByTitleIdDto> GetMovieByTitleAsync(string movieName)
+        public async Task<MovieInformationDto> GetMovieByTitleAsync(string movieName)
         {
-            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
+            var result = await apiClient.GetAsync<MovieInformationDto>($"{baseEndpoint}?apikey={moviesApiKey}&t={movieName}&plot=full");
             return result;
         }
 
-        public async Task<MovieByTitleIdDto> GetMovieByIdAsync(string movieName)
+        public async Task<MovieInformationDto> GetMovieByIdAsync(string movieName)
         {
-            var result = await apiClient.GetAsync<MovieByTitleIdDto>($"{baseEndpoint}?apikey={moviesApiKey}&i={movieName}&plot=full");
+            var result = await apiClient.GetAsync<MovieInformationDto>($"{baseEndpoint}?apikey={moviesApiKey}&i={movieName}&plot=full");
             return result;
         }
 
-        public async Task<List<MovieResultDto>> GetMovieInfoAsync(MovieBySearchDto result) //  List<imdbID> result
+        public async Task<List<MovieInformationDto>> GetMovieInfoAsync(MovieBySearchDto result) //  List<imdbID> result
         {
             var tasks = new List<Task>();
-            var movies = new List<MovieResultDto>();
+            var movies = new List<MovieInformationDto>();
             try
             {
                 foreach (var movie in result.Search)
@@ -53,25 +53,9 @@ namespace interaktiva14.Repositories
                             async () =>
                             {
                                 var movieInfo = await GetMovieByIdAsync(movie.imdbID);
-                                MovieResultDto movieResultDto = new MovieResultDto()
-                                {
-                                    Title = movieInfo.Title,
-                                    Year = movieInfo.Year,
-                                    Released = movieInfo.Released,
-                                    Genre = movieInfo.Genre,
-                                    Director = movieInfo.Director,
-                                    Actors = movieInfo.Actors,
-                                    Plot = movieInfo.Plot,
-                                    Awards = movieInfo.Awards,
-                                    Ratings = movieInfo.Ratings,
-                                    Metascore = movieInfo.Metascore,
-                                    imdbVotes = movieInfo.imdbVotes,
-                                    imdbID = movieInfo.imdbID,
-                                    Poster = movieInfo.Poster,
-                                    numberOfLikes = movie.NumberOfLikes,
-                                    numberOfDislikes = movie.NumberOfDislikes
-                                };
-                                movies.Add(movieResultDto);
+                                movieInfo.NumberOfLikes = movie.NumberOfLikes;
+                                movieInfo.NumberOfDislikes = movie.NumberOfDislikes; 
+                                movies.Add(movieInfo);
                             }
                         )
                     );

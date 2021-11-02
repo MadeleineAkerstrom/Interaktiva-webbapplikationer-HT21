@@ -8,14 +8,14 @@ namespace interaktiva14.Repositories
 {
     public interface IOmdbRepository
     {
-        Task<MovieByTitleIdDto> GetMovieByIdAsync(string movieName);
+        Task<MovieInformationDto> GetMovieByIdAsync(string movieName);
 
         /// <summary>
         /// Retrieves searchresult of movies
         /// </summary>
         /// <returns>MovieBySearchDto</returns>
         Task<MovieBySearchDto> GetMovieBySearchAsync(string movieName);
-        Task<MovieByTitleIdDto> GetMovieByTitleAsync(string movieName);
-        Task<List<MovieResultDto>> GetMovieInfoAsync(MovieBySearchDto result);
+        Task<MovieInformationDto> GetMovieByTitleAsync(string movieName);
+        Task<List<MovieInformationDto>> GetMovieInfoAsync(MovieBySearchDto result);
     }
 }
