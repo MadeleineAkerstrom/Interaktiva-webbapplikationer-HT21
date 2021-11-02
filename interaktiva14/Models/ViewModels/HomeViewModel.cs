@@ -10,17 +10,14 @@ namespace interaktiva14.Models.ViewModels
     public class HomeViewModel
     {
         // Movie club information from CMDb
-        public List<MovieResultDto> Toplist {get; set;}
+        public List<MovieInformationDto> Toplist {get; set;}
 
-        public HomeViewModel(List<MovieResultDto> movieList)
+        public HomeViewModel(List<MovieInformationDto> movieList)
         {
-            Toplist = movieList.OrderByDescending(o=>o.numberOfLikes).ToList(); // Sorterar listan baserat på antal likes. 
+            Toplist = movieList.OrderByDescending(o=>o.NumberOfLikes).ToList(); // Sorterar listan baserat på antal likes. 
         }
         public HomeViewModel()
-        {
-            
+        {   
         }
-
-        
     }
 }

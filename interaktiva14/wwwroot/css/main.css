@@ -67,11 +67,20 @@ input, select, textarea {
 
 
 /* Header */
+.search-result-header {
+	font-size: 50px;
+	text-align:center;
+	text-shadow: -1px -1px 1px rgb(0 0 0 / 75%);
+    color: #a0a8ab;
+	margin: 0 0 40px 0;
+}
+
 .cmdbheader {
 	display: flex;
 	background: #171a1c  ;
 	padding: 2em;
   	margin: 0 auto;
+	  
 }
 
 .cmdbsearch {
@@ -1540,6 +1549,7 @@ input[type="search"] {
 		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		margin: 0 0 1.5em 0;
 		outline: 0;
+		
 	}
 
 		.bordered-feature-image img {
