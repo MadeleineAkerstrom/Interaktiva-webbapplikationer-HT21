@@ -46,9 +46,18 @@
   })
   
   function sendLike() {
-        alert("Hello! I am an alert box!!");
+    alert("Hello! I am an alert box!!");
+  }
+
+    function sendLikeTest() {
+      var xmlHttp = new XMLHttpRequest();
+      url = "https://grupp9.dsvkurs.miun.se/api/Movie/tt1160419/like"
+      let response = await fetch(url);
+      let data = await response.json();
+      console.log(data)
+      return data;
     }
-    
+
 document.getElementById("likebutton0").addEventListener("click", sendLike)
 
 
