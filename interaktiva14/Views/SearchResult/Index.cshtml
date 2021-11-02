@@ -18,28 +18,30 @@
 													<div class="col-4">
 														<!-- Feature #1 -->
 														<section>
-															
-															<h1>@Html.DisplayFor(model => model.Movies[@i].Title)</h1>
 															<img src=@Model.Movies[@i].Poster alt=@Model.Movies[@i].Title>
-															<h1>@Html.DisplayFor(model => model.Movies[@i].Year)</h1>
+															<h1>@Html.DisplayFor(model => model.Movies[@i].Title)</h1>
+															<h1>@Html.DisplayFor(model => model.Movies[@i].Genre)</h1>
+															<h1>@Html.DisplayFor(model => model.Movies[@i].Released)</h1>
+															<h1>@Html.DisplayFor(model => model.Movies[@i].Director)</h1>
 															
-															<p> Plot blablalbalbal
-																<span id="dots_@(i)">...</span>
-																<span id="more_@(i)">
-																	@Html.DisplayFor(model => model.Movies[@i].Plot)
-																</span>
+															<h3 class="number-of-likes-@(i)">Number of Likes: @Model.Movies[@i].numberOfLikes</h3>
+                                							<h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Movies[@i].numberOfDislikes</h3>
+                               								<div class="likedislikebuttons">
+                            								<input class="likebutton" id="likebutton@(i)" type="button" value="Like ♥"/>
+                            								<input class="dislikebutton" id="dislikebutton@(i)" type="button" value="Dislike"/>
+															<p>
+																@Html.DisplayFor(model => model.Movies[@i].Plot)
 															</p>
-
-															<button onclick="readMoreFunction(@i)" id="myBtn_@(i)">Read more</button>
-															
 														</section>
-													</div>
-												}
-											</div>
-										</div>
-									</section>
+                        							</div>
+                    							}
+                							</div>
+            							</div>
+        							</section>
+								
 							</div>
 						</div>
 					</div>
 				</section>
+		</div>
 </body>

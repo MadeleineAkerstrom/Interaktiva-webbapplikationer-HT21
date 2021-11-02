@@ -66,3 +66,7 @@ function readMoreFunction(id) {
       expandMore.addEventListener('click', expand)
     })
   })
+
+
+
+

@@ -16,6 +16,10 @@
                         <h3>Director: @Model.Toplist[0].Director</h3>
                         <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].numberOfLikes</h3>
                         <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].numberOfDislikes</h3>
+                        <div class="likedislikebuttons">
+                            <input class="likebutton" id="likebutton0" type="button" value="Like ♥"/>
+                            <input class="dislikebutton" id="dislikebutton0" type="button" value="Dislike"/>
+                        </div>
                         <p>@Model.Toplist[0].Plot</p>
                         
                     </div>
@@ -47,6 +51,10 @@
                                 <h3>Director: @Model.Toplist[@i].Director</h3>
                                 <h3 class="number-of-likes-@(i)">Number of Likes: @Model.Toplist[@i].numberOfLikes</h3>
                                 <h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Toplist[@i].numberOfDislikes</h3>
+                               <div class="likedislikebuttons">
+                            <input class="likebutton" id="likebutton@(i)" type="button" value="Like ♥"/>
+                            <input class="dislikebutton" id="dislikebutton@(i)" type="button" value="Dislike"/>
+                        </div>
                                 <p>@Model.Toplist[@i].Plot</p>
                             </section>
 
