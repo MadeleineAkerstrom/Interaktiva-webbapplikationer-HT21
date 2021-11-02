@@ -18,7 +18,7 @@ namespace interaktiva14.Models.ViewModels
         }
         public SearchResultViewModel()
         {
-            
+            Movies = new List<MovieInformationDto>();
         }
     }
 }
