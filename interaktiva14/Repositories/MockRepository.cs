@@ -61,5 +61,10 @@ namespace DemoInteraktiva.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<ToplistDto>> GetMovies()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

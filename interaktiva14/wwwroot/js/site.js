@@ -19,9 +19,14 @@ function readMoreFunction(id) {
     }
   }
 
+  document.getElementById("likeBtn").addEventListener("click", sendLike)
+
+  function sendLike() {
+        alert("Hello! I am an alert box!!");
+    }
+
   function likeFunction()
   {
-    let test = document.getElementById("btn_1")
     console.log(test)
     const request = new Request('https://grupp9.dsvkurs.miun.se/api/Movie/tt1160419');
     console.log(request.json())
@@ -41,11 +46,6 @@ function readMoreFunction(id) {
     }).catch(error => {
       console.error(error);
     });
-  }
-
-  function dislikeFunction()
-  {
-
   }
 
   // Expand more/less
