@@ -68,12 +68,13 @@ input, select, textarea {
 
 /* Header */
 .cmdbheader {
+	display: flex;
 	background: #171a1c  ;
 	padding: 2em;
   	margin: 0 auto;
 }
 
-.cmdbform {
+.cmdbsearch {
 	display: flex;
 	flex-wrap: wrap;
 	width: 85%;
@@ -129,7 +130,7 @@ input[type="search"] {
 	  color: white;
 	  font-size: 30px;
 	  margin: 30px;
-	  text-align: center;
+	  text-align: left;
   }
 
   .likebutton {

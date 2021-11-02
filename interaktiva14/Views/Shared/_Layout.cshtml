@@ -12,14 +12,14 @@
 	</head>
 
     <div class="cmdbheader">
-       
-
+       <h1><a href="index.html" id="logo">CMDb 🎞️   Community</a></h1>
+        <div class="cmdbsearch">
         @using (Html.BeginForm("Index", "SearchResult"))
         {          
-            <h1><a href="index.html" id="logo">CMDb Community</a></h1>
-            <input type="text" placeholder="Search.." name="searchMovieName">
+            <input type="search" placeholder="Search.." name="searchMovieName">
             <input class="search-button" type="submit" value="Submit">
         }
+        </div>
     </div>
 
         @RenderBody()
