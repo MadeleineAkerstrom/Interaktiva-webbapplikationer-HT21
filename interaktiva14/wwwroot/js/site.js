@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-  document.getElementById("likeBtn").addEventListener("click", sendLike)
+  //document.getElementById("likeBtn").addEventListener("click", sendLike)
 
   function sendLike() {
         alert("Hello! I am an alert box!!");
