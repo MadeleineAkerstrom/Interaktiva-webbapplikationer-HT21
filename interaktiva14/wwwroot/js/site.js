@@ -3,12 +3,6 @@
 
 // Write your JavaScript code.
 
-  //document.getElementById("likeBtn").addEventListener("click", sendLike)
-
-  function sendLike() {
-        alert("Hello! I am an alert box!!");
-    }
-
   function likeFunction()
   {
     console.log(test)
@@ -50,7 +44,11 @@
       expandMore.addEventListener('click', expand)
     })
   })
-
-
+  
+  function sendLike() {
+        alert("Hello! I am an alert box!!");
+    }
+    
+document.getElementById("likebutton0").addEventListener("click", sendLike)
 
 
