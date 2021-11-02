@@ -4,16 +4,17 @@
     
     <div id="page-wrapper">
         <div id="banner">
+            <h1 class="toplist-header">Top 5 movies right now!</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-6 col-12-medium">
                         <!-- Banner Copy -->
-                        <h2>Number 1 move right now!</h2>                           
-                        <h1>@Model.Toplist[0].Title</h1>
+                        <h1>1. @Model.Toplist[0].Title</h1>
                         
                         <h3>Genre: @Model.Toplist[0].Genre</h3>
                         <h3>Released: @Model.Toplist[0].Released</h3>
                         <h3>Director: @Model.Toplist[0].Director</h3>
+                        <h3>IMDd rating: @Model.Toplist[0].Ratings[0].Value)</h3>
                         <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].NumberOfLikes</h3>
                         <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].NumberOfDislikes</h3>
                         <div class="likedislikebuttons">
@@ -51,11 +52,11 @@
                             <!-- Feature #1 -->
                             <section>
                                 <a href="#" class="bordered-feature-image"><img src=@Model.Toplist[@i].Poster alt=@Model.Toplist[@i].Title /></a>
-                                <h2>Number @(i+1)</h2>
-                                <h2>@Model.Toplist[@i].Title</h2>
+                                <h2>@(i+1). @Model.Toplist[@i].Title</h2>
                                 <h3>Genre: @Model.Toplist[@i].Genre</h3>
                                 <h3>Released: @Model.Toplist[@i].Released</h3>
                                 <h3>Director: @Model.Toplist[@i].Director</h3>
+                                <h3>IMDd rating: @Model.Toplist[@i].Ratings[0].Value)</h3>
                                 <h3 class="number-of-likes-@(i)">Number of Likes: @Model.Toplist[@i].NumberOfLikes</h3>
                                 <h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Toplist[@i].NumberOfDislikes</h3>
                                 <div class="likedislikebuttons">
