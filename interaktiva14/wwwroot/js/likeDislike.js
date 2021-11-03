@@ -1,6 +1,6 @@
 function LikeFunction(imdbId) {
     likeButton = document.getElementById("likebutton0")
-    document.getElementByClassName('number-of-likes-0').innerHTML = 'test'
+    document.getElementsByClassName('number-of-likes-0').innerHTML = 'test'
 
     likeButton.disabled = true
     //likeButton.style.background='#000000'
