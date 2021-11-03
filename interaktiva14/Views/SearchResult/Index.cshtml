@@ -5,7 +5,12 @@
 	
 		<div id="page-wrapper">
 			<!-- Content -->
-			
+			@if (@Model.ErrorState == true)
+			{
+				<h1 id="error-message">Error 404 - Movie not found</h1>
+			}
+			else
+			{
 				<section id="content">
 					<h1 class="search-result-header">Search Result</h1>
 					<div class="container">
@@ -52,5 +57,6 @@
 						</div>
 					</div>
 				</section>
+			}
 		</div>
 </body>

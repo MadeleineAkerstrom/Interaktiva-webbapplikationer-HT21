@@ -1720,6 +1720,11 @@ input[type="search"] {
 
 /* Content */
 
+#error-message {
+	font-size: 75px;
+	text-align: center;
+}
+
 	#content {
 		background: #D4D9DD url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
 		border-top: solid 1px #fff;

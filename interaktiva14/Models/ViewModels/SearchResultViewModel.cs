@@ -11,6 +11,7 @@ namespace interaktiva14.Models.ViewModels
     {
         public List<MovieInformationDto> Movies { get; set; }
         public string imdbID { get; set; }
+        public bool ErrorState { get; set; }
 
         public SearchResultViewModel(List<MovieInformationDto> movieList)
         {
@@ -19,6 +20,7 @@ namespace interaktiva14.Models.ViewModels
         public SearchResultViewModel()
         {
             Movies = new List<MovieInformationDto>();
+            ErrorState = true;
         }
     }
 }
