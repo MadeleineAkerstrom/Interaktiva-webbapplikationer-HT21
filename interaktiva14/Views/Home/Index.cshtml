@@ -17,6 +17,7 @@
                         <h3>IMDd rating: @Model.Toplist[0].Ratings[0].Value)</h3>
                         <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].NumberOfLikes</h3>
                         <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].NumberOfDislikes</h3>
+                        
                         <div class="likedislikebuttons">
                             <button id="likebutton0" type="button" class="btn btn-success" onclick="LikeFunction('@Model.Toplist[0].imdbID')">Like ♥</button>
                             <button id="dislikebutton0" type="button" class="btn btn-danger" onclick="DislikeFunction('@Model.Toplist[0].imdbID')">Dislike</button>
