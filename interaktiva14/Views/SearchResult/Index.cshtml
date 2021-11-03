@@ -32,14 +32,15 @@
 															<h1>Genre: @Html.DisplayFor(model => model.Movies[@i].Genre)</h1>
 															<h1>Release date: @Html.DisplayFor(model => model.Movies[@i].Released)</h1>
 															<h1>Director: @Html.DisplayFor(model => model.Movies[@i].Director)</h1>
-															<h1>IMDd rating: @Html.DisplayFor(model => model.Movies[@i].Ratings[0].Value)</h1>
+															<h1>IMDd rating: @Model.Movies[@i].Ratings[0].Value</h1>
 															
 															<h3 class="number-of-likes-@(i)">Number of Likes: @Model.Movies[@i].NumberOfLikes</h3>
-                                							<h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Movies[@i].NumberOfDislikes</h3>
-                               								<div class="likedislikebuttons">
-                            								<input class="likebutton" id="likebutton@(i)" type="button" value="Like ♥"/>
-                            								<input class="dislikebutton" id="dislikebutton@(i)" type="button" value="Dislike"/>
+															<h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Movies[@i].NumberOfDislikes</h3>
+															<div class="likedislikebuttons">
+																<button id="likebutton@(i)" type="button" class="btn btn-success" onclick="LikeFunction('@Model.Movies[@i].imdbID')">Like ♥</button>
+																<button id="dislikebutton@(i)" type="button" class="btn btn-danger" onclick="DislikeFunction('@Model.Movies[@i].imdbID')">Dislike</button>
 															</div>
+															
 															<div class="description">
 																<div class="expandMoreContent" id="showMoreContent@(i)"> 
 																	<p>@Model.Movies[@i].Plot</p>
