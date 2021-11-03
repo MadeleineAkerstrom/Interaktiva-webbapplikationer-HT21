@@ -27,12 +27,12 @@
 													<div class="col-4">
 														<!-- Feature #1 -->
 														<section>
-															<img src=@Model.Movies[@i].Poster alt=@Model.Movies[@i].Title>
-															<h1>@Html.DisplayFor(model => model.Movies[@i].Title)</h1>
-															<h1>Genre: @Html.DisplayFor(model => model.Movies[@i].Genre)</h1>
-															<h1>Release date: @Html.DisplayFor(model => model.Movies[@i].Released)</h1>
-															<h1>Director: @Html.DisplayFor(model => model.Movies[@i].Director)</h1>
-															<h1>IMDd rating: @Model.Movies[@i].Ratings[0].Value</h1>
+															<img class="bordered-feature-image" src=@Model.Movies[@i].Poster alt=@Model.Movies[@i].Title>
+															<h2>@Html.DisplayFor(model => model.Movies[@i].Title)</h2>
+															<h3>Genre: @Html.DisplayFor(model => model.Movies[@i].Genre)</h3>
+															<h3>Release date: @Html.DisplayFor(model => model.Movies[@i].Released)</h3>
+															<h3>Director: @Html.DisplayFor(model => model.Movies[@i].Director)</h3>
+															<h3>IMDd rating: @Model.Movies[@i].Ratings[0].Value</h3>
 															
 															<h3 id="number-of-likes-@(i)">Number of Likes: @Model.Movies[@i].NumberOfLikes</h3>
 															<h3 id="number-of-dislikes-@(i)">Number of Dislikes: @Model.Movies[@i].NumberOfDislikes</h3>
