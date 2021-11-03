@@ -1,24 +1,26 @@
 function LikeFunction(imdbId, id) {
-    likeButton = document.getElementById("likebutton" + id)
-   // document.getElementById('number-of-likes-0').innerHTML = 'test'
-    
+    likeButton = document.getElementById("likebutton" + id)    
     likeButton.disabled = true
-    //likeButton.style.background='#000000'
     
     url = "https://grupp9.dsvkurs.miun.se/api/Movie/"+imdbId+"/like"
     fetch(url).
     then(response => response.json())
-    .then(data => console.log(data)).finally(() => (likeButton.disabled = false));
-    
+    .then(data => {
+      document.getElementById('number-of-likes-' + id).innerHTML = "Number of Likes: " + data['numberOfLikes']
+      console.log(data)
+    }).finally(() => (likeButton.disabled = false));
   }
 
 function DislikeFunction(imdbId, id) {
     dislikeButton = document.getElementById("dislikebutton" + id)
     dislikeButton.disabled = true
-    //likeButton.style.background='#000000'
     
     url = "https://grupp9.dsvkurs.miun.se/api/Movie/"+imdbId+"/dislike"
     fetch(url).
     then(response => response.json())
-    .then(data => console.log(data)).finally(() => (dislikeButton.disabled = false));
+    .then(data => {
+      document.getElementById('number-of-dislikes-' + id).innerHTML = "Number of Dislikes: " + data['numberOfDislikes']
+      console.log(data)
+    })
+    .finally(() => (dislikeButton.disabled = false));
   }
