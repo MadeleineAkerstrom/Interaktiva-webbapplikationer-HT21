@@ -18,9 +18,8 @@
                         <h3 class="number-of-likes-0">Number of Likes: @Model.Toplist[0].NumberOfLikes</h3>
                         <h3 class="number-of-dislikes-0">Number of Dislikes: @Model.Toplist[0].NumberOfDislikes</h3>
                         <div class="likedislikebuttons">
-                            <input class="likebutton" id="likebutton0" type="button" value="Like ♥"/>
-                            <button type="button" class="btn btn-success" onclick=myFunction()>Like ♥</button>
-                            <input class="dislikebutton" id="dislikebutton0" type="button" value="Dislike"/>
+                            <button id="likebutton0" type="button" class="btn btn-success" onclick="LikeFunction('@Model.Toplist[0].imdbID')">Like ♥</button>
+                            <button id="dislikebutton0" type="button" class="btn btn-danger" onclick=DislikeFunction()>Dislike</button>
                         </div>
                         
                         <div class="description">
@@ -62,8 +61,8 @@
                                 <h3 class="number-of-likes-@(i)">Number of Likes: @Model.Toplist[@i].NumberOfLikes</h3>
                                 <h3 class="number-of-dislikes-@(i)">Number of Dislikes: @Model.Toplist[@i].NumberOfDislikes</h3>
                                 <div class="likedislikebuttons">
-                                    <input class="likebutton" id="likebutton@(i)" type="button" value="Like ♥"/>
-                                    <input class="dislikebutton" id="dislikebutton@(i)" type="button" value="Dislike"/>
+                                    <button id="likebutton@(i)" type="button" class="btn btn-success" onclick=myFunction()>Like ♥</button>
+                                    <button id="dislikebutton@(i)" type="button" class="btn btn-danger" onclick=myFunction()>Dislike</button>
                                  </div>
 
                                 <div class="description">
