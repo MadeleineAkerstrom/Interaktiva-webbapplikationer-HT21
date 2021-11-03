@@ -8,7 +8,7 @@ function LikeFunction(imdbId, id) {
     .then(data => {
       document.getElementById('number-of-likes-' + id).innerHTML = "Number of Likes: " + data['numberOfLikes']
       console.log(data)
-    }).finally(() => (likeButton.disabled = false));
+    }).finally(() => setTimeout(() => {likeButton.disabled = false;}, 3000));
   }
 
 function DislikeFunction(imdbId, id) {
@@ -22,5 +22,5 @@ function DislikeFunction(imdbId, id) {
       document.getElementById('number-of-dislikes-' + id).innerHTML = "Number of Dislikes: " + data['numberOfDislikes']
       console.log(data)
     })
-    .finally(() => (dislikeButton.disabled = false));
+    .finally(() => setTimeout(() => {dislikeButton.disabled = false;}, 3000));
   }
