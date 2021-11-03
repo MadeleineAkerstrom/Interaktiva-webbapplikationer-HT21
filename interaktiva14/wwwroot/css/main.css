@@ -1723,6 +1723,15 @@ input[type="search"] {
 #error-message {
 	font-size: 75px;
 	text-align: center;
+	margin: 40px;
+}
+
+#error-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	border-radius: 16px;
 }
 
 	#content {
