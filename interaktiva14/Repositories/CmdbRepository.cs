@@ -36,26 +36,5 @@ namespace interaktiva14.Repositories
             var result = await apiClient.GetAsync<List<ToplistDto>>($"{baseEndpoint}/Toplist?sort=desc");
             return result;  
         }
-
-        /// <summary>
-        /// Increase number of likes on a movie at CMDb with imdbID
-        /// </summary>
-        /// <param name="imdbID">Selected movie imdbID</param>
-        /// <returns></returns>
-        public async Task<ToplistDto> IncreaseNumberOfLikes(string imdbID)
-        {
-            var test = await apiClient.GetAsync<ToplistDto>($"{baseEndpoint}Movie/{imdbID}/like");
-            return test;
-        }
-
-        /// <summary>
-        /// Increase number of dislikes on a movie at CMDb with imdbID
-        /// </summary>
-        /// <param name="imdbID">Selected movie imdbID</param>
-        /// <returns></returns>
-        public async Task<ToplistDto> DecreaseNumberOfLikes(string imdbID)
-        {
-            return await apiClient.GetAsync<ToplistDto>($"{baseEndpoint}Movie/{imdbID}/dislike");
-        }
     }
 }
