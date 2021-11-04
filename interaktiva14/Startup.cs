@@ -29,7 +29,7 @@ namespace interaktiva14
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IOmdbRepository, OmdbRepository>(); // L�gger till Repository som ett objekt vid startup. Som kan kommas �t i hela programmet.
+            services.AddScoped<IOmdbRepository, OmdbRepository>(); //Adds repository as an object at startup. Can then get accessed from the rest of the application.
             services.AddScoped<ICmdbRepository, CmdbRepository>();
             services.AddScoped<IApiClient, ApiClient>();
             

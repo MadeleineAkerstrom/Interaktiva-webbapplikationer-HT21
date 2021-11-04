@@ -1,3 +1,4 @@
+// Send likes to api and updates the view with number of likes 
 function LikeFunction(imdbId, id) {
     likeButton = document.getElementById("likebutton" + id)    
     likeButton.disabled = true
@@ -11,6 +12,7 @@ function LikeFunction(imdbId, id) {
     }).finally(() => setTimeout(() => {likeButton.disabled = false;}, 3000));
   }
 
+  // Send dislikes to api and updates the view with number of dislikes 
 function DislikeFunction(imdbId, id) {
     dislikeButton = document.getElementById("dislikebutton" + id)
     dislikeButton.disabled = true
