@@ -24,7 +24,7 @@ namespace interaktiva14.Controllers
             {
                 var task1 = omdbRepository.GetMovieBySearchAsync(searchMovieName);
                 var task2 = cmdbRepository.GetMovies();
-                await Task.WhenAll(task1, task2); // Väntar till alla uppgifter har kört klart. 
+                await Task.WhenAll(task1, task2); // Wait untill all tasks are done. 
                 
                 var _searchResult = await task1;
                 var movies = await task2;
